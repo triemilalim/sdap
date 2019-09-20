@@ -22,42 +22,148 @@
 
   <section class="content">
 
-    <div class="box">
+  <div class="row">
 
-      <div class="box-header with-border">
+<div class="col-lg-12">
 
-        <h3 class="box-title">Title</h3>
+  <?php
 
-        <div class="box-tools pull-right">
+    // if($_SESSION["profile"] =="Administrator"){
 
-          <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+      include "reports/penerimaan.php";
 
-            <i class="fa fa-minus"></i>
+    // }
 
-          </button>
+  ?>
+  
+  </div>
 
-          <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-            
-            <i class="fa fa-times"></i>
+  <div class="col-lg-6">
 
-          </button>
+  <?php
 
-        </div>
+    // if($_SESSION["profile"] =="Administrator"){
 
-      </div>
+      include "reports/grafik-wisatawan.php";
 
-      <div class="box-body">
+    // }
 
-        Start creating your amazing application!
+  ?>
+  
+  </div>
 
-      </div>
+  <div class="col-lg-6">
+    
+    <?php
 
-      <div class="box-footer">
+      // if($_SESSION["profile"] =="Administrator"){
 
-        Footer
+        include "reports/lama-kunjungan.php";
 
-      </div>
+      // }
 
+    ?>
+
+  </div>
+  
+
+  <div class="col-lg-4">
+    
+    <?php
+
+      // if($_SESSION["profile"] =="Administrator"){
+
+        include "reports/jenis-penginapan.php";
+
+      // }
+
+    ?>
+
+  </div> 
+
+  <div class="col-lg-4">
+    
+    <?php
+
+      // if($_SESSION["profile"] =="Administrator"){
+
+        include "reports/jenis-tempat-makan.php";
+
+      // }
+
+    ?>
+
+  </div> 
+
+  <div class="col-lg-4">
+    
+    <?php
+
+      // if($_SESSION["profile"] =="Administrator"){
+
+        include "reports/kategori-restoran.php";
+
+      // }
+
+    ?>
+
+  </div> 
+
+  <div class="col-lg-4">
+    
+    <?php
+
+      // if($_SESSION["profile"] =="Administrator"){
+
+        include "reports/jasa-perjalanan-wisata.php";
+
+      // }
+
+    ?>
+
+  </div> 
+
+  <div class="col-lg-4">
+    
+    <?php
+
+      // if($_SESSION["profile"] =="Administrator"){
+
+        include "reports/sertifikasi-pemandu-wisata.php";
+
+      // }
+
+    ?>
+
+  </div> 
+
+  <div class="col-lg-4">
+    
+    <?php
+
+      // if($_SESSION["profile"] =="Administrator"){
+
+        include "reports/penjual-cinderamata.php";
+
+      // }
+
+    ?>
+
+  </div> 
+
+</div>
+
+<div class="row">
+  
+  <?php
+
+    // if($_SESSION["profile"] =="Administrator"){
+
+      include "reports/top-boxes.php";
+
+    // }
+
+  ?>
     </div>
 
   </section>

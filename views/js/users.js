@@ -179,67 +179,6 @@ $(document).on("click", ".btnActivate", function(){
 });
 
 
-
-$(document).on("click", ".btnPersetujuan", function(){
-
-	var userId = $(this).attr("userId");
-	var userStatus = $(this).attr("userStatus");
-
-	var datum = new FormData();
-	datum.append("activateId", userId);
-	datum.append("activateUser", userStatus);
-
-	$.ajax({
-
-		url:"ajax/users.ajax.php",
-		method: "POST",
-		data: datum,
-		cache: false,
-		contentType: false,
-		processData: false,
-		success: function(answer){
-
-      	// console.log("answer", answer);
-
-      	if(window.matchMedia("(max-width:767px)").matches){
-
-      		swal({
-      			title: "The user status has been updated",
-      			type: "success",
-      			confirmButtonText: "Close"	
-      		}).then(function(result) {
-
-      			if (result.value) {
-      				window.location = "users";
-      			}
-
-      		})
-
-      	}
-
-      }
-
-  })
-
-	if(userStatus == 0){
-
-		$(this).removeClass('btn-success');
-		$(this).addClass('btn-danger');
-		$(this).html('Belum Disetujui');
-		$(this).attr('userStatus',1);
-
-	}else{
-
-		$(this).addClass('btn-success');
-		$(this).removeClass('btn-danger');
-		$(this).html('Disetujui');
-		$(this).attr('userStatus',0);
-
-	}
-
-});
-
-
 /*=============================================
 VALIDATE IF USER ALREADY EXISTS
 =============================================*/
@@ -477,23 +416,23 @@ var newSatuan = document.getElementById("newSatuan");
 
 // VALIDATE NIP NUMBER ONLY
 // Restricts input for the given textbox to the given inputFilter.
-function setInputFilter(textbox, inputFilter) {
-  ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
-    textbox.addEventListener(event, function() {
-      if (inputFilter(this.value)) {
-        this.oldValue = this.value;
-        this.oldSelectionStart = this.selectionStart;
-        this.oldSelectionEnd = this.selectionEnd;
-      } else if (this.hasOwnProperty("oldValue")) {
-        this.value = this.oldValue;
-        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
-      }
-    });
-  });
-}
+// function setInputFilter(textbox, inputFilter) {
+//   ["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function(event) {
+//     textbox.addEventListener(event, function() {
+//       if (inputFilter(this.value)) {
+//         this.oldValue = this.value;
+//         this.oldSelectionStart = this.selectionStart;
+//         this.oldSelectionEnd = this.selectionEnd;
+//       } else if (this.hasOwnProperty("oldValue")) {
+//         this.value = this.oldValue;
+//         this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+//       }
+//     });
+//   });
+// }
 
 
-// Install input filters.
-setInputFilter(document.getElementById("newNIP"), function(value) {
-  return /^\d*$/.test(value); });
+// // Install input filters.
+// setInputFilter(document.getElementById("newNIP"), function(value) {
+//   return /^\d*$/.test(value); });
 // END OF VALIDATE NIP NUMBER ONLY

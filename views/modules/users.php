@@ -60,7 +60,7 @@
              <th>Role</th>
              <th>Kode Lokasi</th>
              <th>Status Aktif</th>
-             <th>Actions</th>
+             <th>Aksi</th>
 
            </tr> 
 
@@ -265,7 +265,7 @@
                     $value1 = null;
 
                     $users = ControllerUsers::ctrShowUsersLokasi($item, $value);
-                    var_dump($users);
+                    // var_dump($users);
 
                     foreach ($users as $key => $value) {
                       echo '<option value="'.$value["kode_lokasi"].'">'.$value["keterangan"].'</option>';
@@ -449,7 +449,7 @@
                     $value1 = null;
 
                     $users = ControllerUsers::ctrShowUsersLokasi($item, $value);
-                    var_dump($users);
+                    // var_dump($users);
 
                     foreach ($users as $key => $value) {
                       echo '<option value="'.$value["kode_lokasi"].'">'.$value["keterangan"].'</option>';

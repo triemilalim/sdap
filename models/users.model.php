@@ -7,7 +7,7 @@ class UsersModel{
 	/*=============================================
 	SHOW USER 
 	=============================================*/
-
+	
 	static public function MdlShowUsers($tableUsers, $tableRefKodeLokasi , $item, $value){
 
 		if($item != null){

@@ -39,10 +39,14 @@
   <link rel="stylesheet" href="views/dist/css/skins/_all-skins.min.css"> 
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic"> 
+ <!--  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">  -->
 
   <!-- iCheck -->
   <link rel="stylesheet" href="views/plugins/iCheck/all.css"> 
+  
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="views/bower_components/morris.js/morris.css">
+  
   
   <!--====  End of Plugins CSS  ====-->
   
@@ -74,7 +78,18 @@
   <script src="views/plugins/sweetalert2/sweetalert2.all.js"></script>
 
   <!-- By default sweetalert2 doesn't support IE. To enable IE 11 support, include Promise polyfill -->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script> -->
+  
+  <!-- js ganti yang atas    -->
+  <script type="text/javascript" src="views/js/core.js"></script>
+
+  
+  <!-- Morris.js charts http://morrisjs.github.io/morris.js/-->
+  <script src="views/bower_components/raphael/raphael.min.js"></script>
+  <script src="views/bower_components/morris.js/morris.min.js"></script>
+  
+  <!-- ChartJS http://www.chartjs.org/-->
+  <script src="views/bower_components/Chart.js/Chart.js"></script>
   
 </head>
 
@@ -108,13 +123,8 @@
 
         if ($_GET["route"] == 'home' || 
             $_GET["route"] == 'users' ||
-            $_GET["route"] == 'categories' ||
-            $_GET["route"] == 'products' ||
-            $_GET["route"] == 'customers' ||
-            $_GET["route"] == 'manage-sales' ||
-            $_GET["route"] == 'create-sales' ||
-            $_GET["route"] == 'sales-report' ||
             $_GET["route"] == 'input-data' ||
+            $_GET["route"] == 'approval'||
             $_GET["route"] == 'logout'){
 
           include "modules/".$_GET["route"].".php";
@@ -155,6 +165,7 @@
 <script src="views/js/template.js"></script>
 <script src="views/js/users.js"></script>
 <script src="views/js/input-data.js"></script>
+<script src="views/js/approval.js"></script>
 
 
 </body>

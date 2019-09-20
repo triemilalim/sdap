@@ -9,13 +9,17 @@ class AjaxPeriode{
 	VALIDATE IF date !> deadline
 	=============================================*/
 
-	public $validateDate;
+	public $validateBulan;
+	public $validateTahun;
 	public function ajaxValidateDate(){
 
 		$item = "bulan";
-		$value = $this->validateDate;
+		$value = $this->validateBulan;
 
-		$answer = ControllerPeriode::ctrShowPeriode($item, $value);
+		$item2 = "tahun";
+		$value2 = $this->validateTahun;
+
+		$answer = ControllerPeriode::ctrShowPeriode($item, $value , $item2 , $value2);
 
 		echo json_encode($answer);
 
@@ -27,9 +31,10 @@ VALIDATE IF date !> deadline
 =============================================*/
 
 
-if (isset($_POST["validateDate"])) {
+if (isset($_POST["validateBulan"])) {
 
 	$valDate = new AjaxPeriode();
-	$valDate -> validateDate = $_POST["validateDate"];
+	$valDate -> validateBulan = $_POST["validateBulan"];
+	$valDate -> validateTahun = $_POST["validateTahun"];
 	$valDate -> ajaxValidateDate();
 }
