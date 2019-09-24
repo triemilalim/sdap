@@ -27,6 +27,7 @@
         <?php
         $tahun=getdate()['year'];
         $bulan = getdate()['mon']-1;   
+        $bulanValidasi = getdate()['mon'];
         // $monthName = date("F", mktime(0, 0, 0, $bulan, 10));  
         // var_dump($monthName);
         // $angka=1;
@@ -41,13 +42,47 @@
 
         ?> 
 
-        <button class="btn btn-primary" id="btnAddDataPariwisata" <?php echo 'bulan='.$bulan. ' tahun='.$tahun;?> data-toggle="modal">
+         <button class="btn btn-primary" id="btnAddDataPariwisata" <?php echo 'bulanSimpanKeDB='.$bulan. ' tahun='.$tahun.' bulanValidasi='.$bulanValidasi;?> data-toggle="modal">
 
           Tambah Data
 
         </button>
 
       </div>
+
+
+
+  <!-- //tesssssssssssssssssssssssssst -->
+
+    
+    <!-- <div class="form-group col-md-4">
+                    <label>Pilih Bulan</label>
+                    <select class="form-control namaBulan" name="namaBulan" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                      <option value="">Pilih Bulan</option>                    
+                      <option value="1">Januari</option>
+                      <option value="2">Februari</option>
+                      <option value="3">Maret</option>
+                      <option value="4">April</option>
+                      <option value="5">Mei</option>
+                      <option value="6">Juni</option>
+                      <option value="7">Juli</option>
+                      <option value="8">Agustus</option>
+                      <option value="9">September</option>
+                      <option value="10">Oktober</option>
+                      <option value="11">November</option>
+                      <option value="12">Desember</option>
+                    </select>
+                  </div> -->
+
+
+<!-- //test -->
+
+
+
+
+
+
+
 
       <div class="box-body">
 
@@ -75,6 +110,9 @@
               $tahun=getdate()['year'];
               $bulan = getdate()['mon'] -1;
               $jenisData = "T";
+              $lokasi = $_SESSION['kode_lokasi'];
+
+              // $bulan = $_POST['namaBulan'];
 
               if($bulan == 0){
                 $tahun = $tahun - 1;
@@ -82,7 +120,7 @@
               }
               // var_dump("$bulan");
 
-              $dataPariwisata = ControllerDataPariwisata::ctrShowDataPariwisata($item , $value ,$tahun, $bulan,$jenisData );
+              $dataPariwisata = ControllerDataPariwisata::ctrShowDataPariwisata($item , $value ,$tahun, $bulan,$jenisData,$lokasi );
               
               foreach ($dataPariwisata as $key => $value) {
                  echo '
@@ -123,8 +161,7 @@
 
       </table>
 
-    </div>
-    
+    </div>  
     </div>
 
   </section>
@@ -229,7 +266,7 @@
 
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
               <label for="addBulan" class="col-md-2 control-label" style="font-size:medium;">Bulan</label>
               <div class="col-md-10">
                 <input class="form-control input-lg" type="text" id="addBulan"name="addBulan" readonly>
@@ -237,7 +274,7 @@
               </div>
             </div>
 
-            <div class="form-group" >
+            <div class="form-group" style="display: none;" >
               <label for="addTahun" class="col-md-2 control-label" style="font-size:medium;">Tahun</label>
               <div class="col-md-10">
                 <input class="form-control input-lg" type="text" id="addTahun"name="addTahun" readonly>
@@ -257,7 +294,7 @@
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 
-          <button type="submit" name ="save"class="btn btn-primary">Save</button>
+          <button type="submit" name ="save"class="btn btn-primary">Simpan</button>
 
         </div>
         
@@ -402,7 +439,7 @@
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 
-          <button type="submit" class="btn btn-primary">Edit User</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
           
         </div>
 

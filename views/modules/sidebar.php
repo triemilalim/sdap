@@ -22,11 +22,11 @@
 				echo '			
 				<li>
 
-					<a href="Pengumuman">
+					<a href="edit-jatuh-tempo">
 
-						<i class="fa fa-bullhorn"></i>
+						<i class="fa fa-clock-o"></i>
 
-						<span>Pengumuman</span>
+						<span>Edit Tanggal Tutup Periode</span>
 
 					</a>
 
@@ -38,7 +38,7 @@
 
 						<i class="fa fa-user"></i>
 
-						<span>User management</span>
+						<span>Manajemen User</span>
 
 					</a>
 
@@ -117,7 +117,7 @@
 						
 							<i class="fa fa-product-hunt"></i>
 
-							<span>Export Data</span>
+							<span>Cetak Laporan</span>
 
 						</a>
 
@@ -131,7 +131,7 @@
 
 							<i class="fa fa-product-hunt"></i>
 
-							<span>Export Data</span>
+							<span>Cetak Laporan</span>
 
 						</a>
 

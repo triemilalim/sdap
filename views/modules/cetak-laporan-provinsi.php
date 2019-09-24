@@ -17,99 +17,111 @@
     </ol>
 
   </section>
-  
-<section>
-    <div class="box">
-      <div class="box-header with-border">
-        <!--   <div class="box box-danger"> -->
-          <div class="box-header with-border">
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+  <!-- 
+<form name="form" action ="cetak-laporan-provinsi" method="POST">   -->
+  <section>
+      <div class="box">
+        <div class="box-header with-border">
+          <!--   <div class="box box-danger"> -->
+            <div class="box-header with-border">
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+              </div>
             </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group col-md-4">
-                  <label>Pilih Bulan</label>
-                  <select class="form-control namaBulan" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                    <option value="">Pilih Bulan</option>                    
-                    <option value="1">Januari</option>
-                    <option value="2">Februari</option>
-                    <option value="3">Maret</option>
-                    <option value="4">April</option>
-                    <option value="5">Mei</option>
-                    <option value="6">Juni</option>
-                    <option value="7">Juli</option>
-                    <option value="8">Agustus</option>
-                    <option value="9">September</option>
-                    <option value="10">Oktober</option>
-                    <option value="11">November</option>
-                    <option value="12">Desember</option>
-                  </select>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group col-md-4">
+                    <label>Pilih Bulan</label>
+                    <select class="form-control namaBulan" name="namaBulan" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                      <option value="">Pilih Bulan</option>                    
+                      <option value="1">Januari</option>
+                      <option value="2">Februari</option>
+                      <option value="3">Maret</option>
+                      <option value="4">April</option>
+                      <option value="5">Mei</option>
+                      <option value="6">Juni</option>
+                      <option value="7">Juli</option>
+                      <option value="8">Agustus</option>
+                      <option value="9">September</option>
+                      <option value="10">Oktober</option>
+                      <option value="11">November</option>
+                      <option value="12">Desember</option>
+                    </select>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group col-md-4">
+                    <label>Pilih Satuan Kerja</label>
+                    <select class="form-control satuanKerja" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                     <option value="">Pilih Satuan Kerja</option>  
+                     <?php
+
+                     $item = null;
+                     $value1 = null;
+                     $lokasi = $_SESSION["kode_lokasi"];
+                    //  var_dump($lokasi);
+
+                     $users = ControllerUsers::ctrShowUsersLokasi($item, $value,$lokasi);
+
+                     foreach ($users as $key => $value) {
+                      echo '<option value="'.$value["kode_lokasi"].'">'.$value["keterangan"].'</option>';
+                    }
+
+                    ?> 
+                    </select>
+                  </div>     
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group pull-right" >         
+                     <button class="btn btn-warning showDataProvinsi" style="margin-top:5px;margin-left: 10px">Lihat Data</button>   
+                 </div>
+                 <div class="input-group">
+
+                  <textarea style="display: none" id="lokasi" rows="5" cols="50"><?php echo $lokasi ?></textarea>
                 </div>
-                <!-- /.form-group -->
-                <div class="form-group col-md-4">
-                  <label>Pilih Satuan Kerja</label>
-                  <select class="form-control satuanKerja" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                   <option value="">Pilih Satuan Kerja</option>  
-                   <?php
+                  <div class="form-group pull-right" >
 
-                   $item = null;
-                   $value1 = null;
-                   $lokasi = $_SESSION["kode_lokasi"];
-                   var_dump($lokasi);
+                    <!-- <script type="text/javascript">
+                      function pesan(){
+                        var msg;
+                        msg="apakah data Anda yakin akan dihapus?";
+                        var agree=confirm(msg);
+                        if (agree)
+                          return true;
+                        else
+                          return false;
+                      }
+                    </script> -->
+                     <?php
 
-                   $users = ControllerUsers::ctrShowUsersLokasi($item, $value,$lokasi);
+                      // var_dump($_GET["newBulan"]);
+                      if(isset($_GET["newBulan"])){
 
-                   foreach ($users as $key => $value) {
-                    echo '<option value="'.$value["kode_lokasi"].'">'.$value["keterangan"].'</option>';
-                  }
+                    echo '<a href="views/modules/download-report-provinsi.php?report=report&initialDate='.$_GET["bulan"].'">';
+                         echo '<a href="views/modules/users">';
+                    }else{
+                     echo '<a href="views/modules/download-report-provinsi.php?report=report">';
+                    }         
 
                   ?> 
-                  </select>
-                </div>     
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <div class="form-group pull-right" >         
-                   <button class="btn btn-warning showDataProvinsi" style="margin-top:5px;margin-left: 10px">Lihat Data</button>   
-               </div>
-               <div class="input-group">
+                     
+                     <button class="btn btn-success" id="exportProvinisi" style="margin-top:5px">Export to Excel</button>
 
-                <textarea style="display: none" id="lokasi" rows="5" cols="50"><?php echo $lokasi ?></textarea>
-              </div>
-                <div class="form-group pull-right" >
-                  <?php
-
-                    if(isset($_GET["initialDate"])){
-
-                  // echo '<a href="views/modules/download-report-provinsi.php?report=report&initialDate='.$_GET["initialDate"].'">';
-
-                  }else{
-
-                   // echo '<a href="views/modules/download-report-provinsi.php?report=report">';
-
-                  }         
-
-                ?>
-                   
-                   <button class="btn btn-success" id="exportProvinisi" style="margin-top:5px">Export to Excel</button>
-
-                  </a>
-              </div>
-              </div>
-            </div>      
+                    </a>
+                </div>
+                </div>
+              </div>      
+         </div>
        </div>
      </div>
+
+     <!-- </div> -->
    </div>
-
-   <!-- </div> -->
- </div>
-</section>
-
+  </section>
+<!-- </form> -->
 
 <section class="content">
 

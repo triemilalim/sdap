@@ -30,11 +30,11 @@ class DataPariwisataModel {
 	}
 
 
-	static public function mdlShowDataPariwisata ($tableDataPariwisata,$tableRefKodeData,$item , $value,$tahun, $bulan,$jenisData){
+	static public function mdlShowDataPariwisata ($tableDataPariwisata,$tableRefKodeData,$item , $value,$tahun, $bulan,$jenisData,$lokasi){
 		
 		if($jenisData=="B"){ //JENIS DATA BULANAN
 			if($item != null){
-				$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and a".".kode_data = b".".kode_data" );
+				$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%'" );
 		
 				$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 
@@ -43,8 +43,8 @@ class DataPariwisataModel {
 				return $stmt -> fetch();
 
 			} else {
-				$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%'" );
-				
+				$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%'" );
+				var_dump($stmt);
 				$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 				$stmt -> execute();
 
@@ -52,7 +52,7 @@ class DataPariwisataModel {
 			}
 		} else { //JENIS DATA TAHUNAN
 			if($item != null){
-			$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and a".".kode_data = b".".kode_data");
+			$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'T%'");
 	
 			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 
@@ -61,11 +61,11 @@ class DataPariwisataModel {
 			return $stmt -> fetch();
 
 		} else {
-			$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and a".".kode_data = b".".kode_data and a.kode_data LIKE 'T%'");
+			$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and a".".kode_data = b".".kode_data and kode_lokasi=$lokasi and bulan =$bulan and a.kode_data LIKE 'T%'");
 			
 			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 			$stmt -> execute();
-
+			var_dump($stmt);
 			return $stmt -> fetchAll();
 		}
 		}
@@ -77,6 +77,26 @@ class DataPariwisataModel {
 		
 
 	 }
+
+	 static public function mdlShowDataPariwisataUntukEdit ($tableDataPariwisata,$tableRefKodeData,$item , $value){
+		
+	
+	 	$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item ");
+
+	 	$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
+
+	 	$stmt -> execute();
+
+	 	return $stmt -> fetch();
+
+		$stmt -> close();
+
+		$stmt = null;
+		
+
+	 }
+
+
 
 	static public function mdlUpdateDataPariwisata($table, $item1, $value1, $item2, $value2){
 
@@ -142,7 +162,7 @@ class DataPariwisataModel {
 		// 	["satuan"]=> string(5) "Orang" 
 		// } 
 
-		$stmt = Connection::connect()->prepare("UPDATE data_pariwisata SET kode_data=:kode_data , kuantitas=:kuantitas where id =:id");
+		$stmt = Connection::connect()->prepare("UPDATE data_pariwisata SET kode_data=:kode_data , kuantitas=:kuantitas ,approved=0 where id =:id");
 
 		// object(PDOStatement)#4 (1) { ["queryString"]=> string(110) "UPDATE data_pariwisata SET kode_data=:kode_data,kode_lokasi=:kode_lokasi , kuantitas= :kuantitas where id =:id" }
 

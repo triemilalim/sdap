@@ -40,13 +40,9 @@ class AjaxDataPariwisata{
 
 	public $idDataPariwisataUntukEditData;
 	public function ajaxEditDataPariwisata(){
-		$bulan = null;
-		$tahun = null;
 		$item = "id";
 		$value = $this ->idDataPariwisataUntukEditData;
-		$jenisData = " ";
-
-		$answer = ControllerDataPariwisata::ctrShowDataPariwisata($item, $value , $tahun, $bulan,$jenisData);
+		$answer = ControllerDataPariwisata::ctrShowDataPariwisataUntukEdit($item, $value);
 
 		echo json_encode($answer);
 

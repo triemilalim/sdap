@@ -25,6 +25,23 @@ class AjaxReportDataProvinsi{
         echo json_encode($answer);
 
     }
+
+    public $valueBulanExport;
+    public $valueSatkerExport;    
+
+    public function ajaxExportReportDataProvinsi(){
+ 
+        $bulan = "bulan";
+        $valueBulan = $this->valueBulanExport;
+
+        $satker = "kode_lokasi";
+        $valueSatker = $this->valueSatkerExport;
+        
+        $answer = ControllerReport::ctrDownloadReportProvinsi($bulan, $valueBulan, $satker,$valueSatker);
+
+        // echo json_encode($answer);
+
+    }
     
 }
 
@@ -34,5 +51,16 @@ if (isset($_POST["valueBulan"])) {
     $showDataProvinsi -> valueBulan = $_POST["valueBulan"];
     $showDataProvinsi -> valueSatker = $_POST["valueSatker"];
     $showDataProvinsi -> ajaxShowReportDataProvinsi();
+}
+
+
+
+
+if (isset($_POST["valueBulanExport"])) {
+
+    $exportDataProvinsi = new AjaxReportDataProvinsi();
+    $exportDataProvinsi -> valueBulanExport = $_POST["valueBulanExport"];
+    $exportDataProvinsi -> valueSatkerExport = $_POST["valueSatkerExport"];
+    $exportDataProvinsi -> ajaxExportReportDataProvinsi();
 }
 ?>

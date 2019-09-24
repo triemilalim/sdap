@@ -26,7 +26,8 @@
 
         <?php
         $tahun=getdate()['year'];
-        $bulan = getdate()['mon']-1;   
+        $bulan = getdate()['mon']-1;
+        $bulanValidasi = getdate()['mon'];
         $kumpulanBulan="Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember";
 
         $arrayBulan=explode(" " , $kumpulanBulan);
@@ -37,13 +38,13 @@
 
         ?> 
 
-        <button class="btn btn-primary" id="btnAddDataPariwisata" <?php echo 'bulan='.$bulan. ' tahun='.$tahun;?> data-toggle="modal">
+        <button class="btn btn-primary" id="btnAddDataPariwisata" <?php echo 'bulanSimpanKeDB='.$bulan. ' tahun='.$tahun.' bulanValidasi='.$bulanValidasi;?> data-toggle="modal">
 
           Tambah Data
 
         </button>
 
-        <div class="box-tools pull-right">
+     <!--    <div class="box-tools pull-right">
 
            <a href="views/modules/download-report.php?report=report">
   
@@ -51,7 +52,7 @@
 
           </a>
 
-        </div>
+        </div> -->
 
       </div>
 
@@ -81,13 +82,14 @@
               $tahun=getdate()['year'];
               $bulan = getdate()['mon'] -1;
               $jenisData = "B";
+              $lokasi= $_SESSION['kode_lokasi'];
               if($bulan == 0){
                 $bulan =1;
                 $tahun = $tahun - 1;
               }
 
 
-              $dataPariwisata = ControllerDataPariwisata::ctrShowDataPariwisata($item , $value ,$tahun, $bulan, $jenisData);
+              $dataPariwisata = ControllerDataPariwisata::ctrShowDataPariwisata($item , $value ,$tahun, $bulan, $jenisData,$lokasi);
               
               foreach ($dataPariwisata as $key => $value) {
                  echo '
@@ -105,22 +107,43 @@
                     } else {
                       echo '<td><button class="btn btn-danger btnPersetujuan btn-xs" statusApproved="2" idDataPariwisata="'.$value["id"].'">Ditolak</button></td>';
                     }
+                    if($value["approved"] == 1){
+                         echo '
+                    
+                    
 
-                     echo '
+                         <td>
 
-                    <td>
+                         <div class="btn-group">
 
-                      <div class="btn-group">
-                          
-                        <button class="btn btn-warning btnEditDataPariwisata" idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["approved"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
-                        </button>
-                        
-                        <button class="btn btn-danger btnDeleteDataPariwisata" idDataPariwisata="'.$value["id"].'"><i class="fa fa-trash"></i>
-                        </button>                                                                       
-                      </div>  
+                         <button class="btn btn-warning btnEditDataPariwisata" disabled idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["approved"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
+                         </button>
 
-                    </td>
+                         <button class="btn btn-danger btnDeleteDataPariwisataBulanan" disabled idDataPariwisata="'.$value["id"].'"><i class="fa fa-trash"></i>
+                         </button>                                                                       
+                         </div>  
 
+                         </td>';
+                       } else{
+                          echo '
+                    
+                    
+
+                         <td>
+
+                         <div class="btn-group">
+
+                         <button class="btn btn-warning btnEditDataPariwisata"  idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["approved"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
+                         </button>
+
+                         <button class="btn btn-danger btnDeleteDataPariwisataBulanan" idDataPariwisata="'.$value["id"].'"><i class="fa fa-trash"></i>
+                         </button>                                                                       
+                         </div>  
+
+                         </td>';
+
+                       }
+                    echo '
                   </tr>';
               }
           ?>
@@ -234,7 +257,7 @@
 
             </div>
 
-            <div class="form-group" style="display:none">
+            <div class="form-group" style="display: none;">
               <label for="addBulan" class="col-md-2 control-label" style="font-size:medium;">Bulan</label>
               <div class="col-md-10">
                 <input class="form-control input-lg" type="text" id="addBulan"name="addBulan" readonly>
@@ -242,7 +265,7 @@
               </div>
             </div>
 
-            <div class="form-group" >
+            <div class="form-group" style="display: none;">
               <label for="addTahun" class="col-md-2 control-label" style="font-size:medium;">Tahun</label>
               <div class="col-md-10">
                 <input class="form-control input-lg" type="text" id="addTahun"name="addTahun" readonly>
@@ -262,7 +285,7 @@
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 
-          <button type="submit" name ="save"class="btn btn-primary">Save</button>
+          <button type="submit" name ="save"class="btn btn-primary">Simpan</button>
 
         </div>
         
@@ -407,13 +430,13 @@
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
 
-          <button type="submit" class="btn btn-primary">Edit User</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
           
         </div>
 
         <?php
         $editDataPariwisata = new ControllerDataPariwisata();
-        $editDataPariwisata -> ctrEditDataPariwisata();
+        $editDataPariwisata -> ctrEditDataPariwisataBulanan();
         ?>
 
       </form>
@@ -426,6 +449,6 @@
 
 <?php 
     $deleteDataPariwisata = new ControllerDataPariwisata();
-    $deleteDataPariwisata -> ctrDeleteDataPariwisata();
+    $deleteDataPariwisata -> ctrDeleteDataPariwisataBulanan();
 ?>
         

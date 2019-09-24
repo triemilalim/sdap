@@ -128,7 +128,32 @@ $(document).on("click", ".btnDeleteDataPariwisata", function(){
 
 	})
 });
-             
+
+
+$(document).on("click", ".btnDeleteDataPariwisataBulanan", function(){
+	
+	var idDataPariwisata = $(this).attr("idDataPariwisata");
+	console.log("idDataPariwisata", idDataPariwisata);
+
+
+	swal({
+		title: 'Apakah Kamu Yakin Akan Menghapus Data Tersebut ?',
+		type: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		cancelButtonText: 'Batal',
+		confirmButtonText: 'Ya, Hapus Data!'
+	}).then(function(result){
+
+		if(result.value){
+			// window.location = "index.php?route=users&userNip="+userNip+"&userNama="+userNama+"&userPhoto="+userPhoto;
+			window.location = "index.php?route=input-data-bulanan&idDataPariwisata="+idDataPariwisata;
+
+		}
+
+	})
+});    
 
 $(document).on("click", "#btnAddDataPariwisata", function(){
 	var getDate = new Date();  
@@ -138,22 +163,30 @@ $(document).on("click", "#btnAddDataPariwisata", function(){
 
 
 	// var bulan = $('#btnAddDataPariwisata').val();// sebagai paramete query untuk mendapatkan deadline per bulannya berapa 
-	var bulan = $(this).attr("bulan");
+	var bulanSimpanKeDB = $(this).attr("bulanSimpanKeDB");
+	console.log("bulanSimpanKeDB", bulanSimpanKeDB);
+	var bulanValidasi = $(this).attr("bulanValidasi");
+	console.log("bulanValidasi", bulanValidasi);
 	var tahun = $(this).attr("tahun");
+	console.log("tahun", tahun);
 
-	if(bulan == 0){
+	if(bulanSimpanKeDB == 0){
 		tahun = tahun - 1 ;
 		bulan = 12; 
-	}
+	} 
 
-	console.log("bulan if" , bulan);
-	console.log("tahun if" , tahun);
+	// if(){
+
+	// }
+
+	// console.log("bulan if" , bulan);
+	// console.log("tahun if" , tahun);
 
 	document.getElementById("addTahun").setAttribute('value', tahun);
-	document.getElementById("addBulan").setAttribute('value', bulan);
+	document.getElementById("addBulan").setAttribute('value', bulanSimpanKeDB);
 
 	var data = new FormData();
-	data.append("validateBulan", bulan);
+	data.append("bulanValidasi", bulanValidasi);
 	data.append("validateTahun", tahun);
 
 
@@ -169,8 +202,15 @@ $(document).on("click", "#btnAddDataPariwisata", function(){
 
 			console.log("answer" , answer);
 
+			if(tanggalSekarang > answer['tanggal']){
+				swal({
+					title: "Tanggal Sekarang Lebih dari tanggal deadline",
+					type: "error",
+					confirmButtonText: "Close"	
+				});
+			}else{
 				$('#addDataPariwisata').modal('show');
-			
+			}
 
 
 
@@ -188,13 +228,14 @@ $(document).on("click", ".btnEditDataPariwisata", function(){
 	console.log("statusApproved", statusApproved);
 
 
-	if(statusApproved != 0){
+	if(statusApproved == 1){
 		swal({
 			title: "Maaf Status sudah disetujui",
 			type: "error",
 			confirmButtonText: "Close"	
 		});
-	} else {
+	}
+	else {
 		$('#editDataPariwisata').modal('show');
 	}
 
