@@ -3424,10 +3424,12 @@ table.text-center th {
 }
 .login-box-body,
 .register-box-body {
+  border-radius: 15px;
   background: #fff;
   padding: 20px;
   border-top: 0;
   color: #666;
+  box-shadow: 0 0 30px black;
 }
 .login-box-body .form-control-feedback,
 .register-box-body .form-control-feedback {

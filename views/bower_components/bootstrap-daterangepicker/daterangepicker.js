@@ -41,7 +41,8 @@
         this.showDropdowns = false;
         this.showWeekNumbers = false;
         this.showISOWeekNumbers = false;
-        this.showCustomRangeLabel = true;
+        this.showCustomRangeLabel = false;
+        this.alwaysShowCalendars = false;
         this.timePicker = false;
         this.timePicker24Hour = false;
         this.timePickerIncrement = 1;
@@ -60,8 +61,8 @@
             this.drops = 'up';
 
         this.buttonClasses = 'btn btn-sm';
-        this.applyClass = 'btn-success';
-        this.cancelClass = 'btn-default';
+        this.applyClass = 'btn-success' ;
+        this.cancelClass = 'btn-danger';
 
         this.locale = {
             direction: 'ltr',
@@ -118,7 +119,7 @@
                 '</div>' +
                 '<div class="ranges">' +
                     '<div class="range_inputs">' +
-                        '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
+                //         '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
                         '<button class="cancelBtn" type="button"></button>' +
                     '</div>' +
                 '</div>' +

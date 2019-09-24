@@ -20,7 +20,7 @@ $total = ControllerDashboard::ctrTotal();
 <div class="box box-default">
 	
 	<div class="box-header with-bvalue">
-  
+      <i class="fa fa-home"></i>
       <h3 class="box-title">Jenis Penginapan</h3>
 
     </div>

@@ -27,10 +27,6 @@
         <?php
         $tahun=getdate()['year'];
         $bulan = getdate()['mon']-1;   
-        // $monthName = date("F", mktime(0, 0, 0, $bulan, 10));  
-        // var_dump($monthName);
-        // $angka=1;
-
         $kumpulanBulan="Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember";
 
         $arrayBulan=explode(" " , $kumpulanBulan);
@@ -46,6 +42,16 @@
           Tambah Data
 
         </button>
+
+        <div class="box-tools pull-right">
+
+           <a href="views/modules/download-report.php?report=report">
+  
+           <button class="btn btn-success" style="margin-top:5px">Export to Excel</button>
+
+          </a>
+
+        </div>
 
       </div>
 
@@ -74,15 +80,14 @@
               $value = null;
               $tahun=getdate()['year'];
               $bulan = getdate()['mon'] -1;
-              $jenisData = "T";
-
+              $jenisData = "B";
               if($bulan == 0){
+                $bulan =1;
                 $tahun = $tahun - 1;
-                $bulan = 1;
               }
-              // var_dump("$bulan");
 
-              $dataPariwisata = ControllerDataPariwisata::ctrShowDataPariwisata($item , $value ,$tahun, $bulan,$jenisData );
+
+              $dataPariwisata = ControllerDataPariwisata::ctrShowDataPariwisata($item , $value ,$tahun, $bulan, $jenisData);
               
               foreach ($dataPariwisata as $key => $value) {
                  echo '
@@ -188,13 +193,13 @@
               <div class="col-md-10">
                 <select class="form-control input-lg" required id='addJenisData' name='addJenisData' onClick="getJenisData()">
                   <option value="">Pilih Jenis</option>
-                  <option value="T1">Objek Wisata</option>
-                  <option value="T2">Penginapan</option>
-                  <option value="T3">Biro dan Agent Perjalanan</option>
-                  <option value="T4">Pemandu Wisata</option>
-                  <option value="T5">Restoran</option>
-                  <option value="T6">Usaha Makanan/Minuman</option>
-                  <option value="T7">Cendramata</option>
+                  <option value="B1">Wisatawan Budaya</option>
+                  <option value="B2">Wisatawan Bahari</option>
+                  <option value="B3">Wisatawan Cagar Alam</option>
+                  <option value="B4">Wisatawan Pertanian</option>
+                  <option value="B5">Wisatawan Alam</option>
+                  <option value="B6">Lama Kunjungan</option>
+                  <option value="B7">Penghasilan Daerah</option>
                 </select>
               </div>
 
@@ -229,7 +234,7 @@
 
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="display:none">
               <label for="addBulan" class="col-md-2 control-label" style="font-size:medium;">Bulan</label>
               <div class="col-md-10">
                 <input class="form-control input-lg" type="text" id="addBulan"name="addBulan" readonly>
@@ -335,13 +340,13 @@
               <div class="col-md-10">
                 <select class="form-control input-lg" required id='editJenisData' name='editJenisData' onClick="getJenisDataEdit()"">
                   <option value="">Pilih Jenis</option>
-                  <option value="T1">Objek Wisata</option>
-                  <option value="T2">Penginapan</option>
-                  <option value="T3">Biro dan Agent Perjalanan</option>
-                  <option value="T4">Pemandu Wisata</option>
-                  <option value="T5">Restoran</option>
-                  <option value="T6">Usaha Makanan/Minuman</option>
-                  <option value="T7">Cendramata</option>
+                  <option value="B1">Wisatawan Budaya</option>
+                  <option value="B2">Wisatawan Bahari</option>
+                  <option value="B3">Wisatawan Cagar Alam</option>
+                  <option value="B4">Wisatawan Pertanian</option>
+                  <option value="B5">Wisatawan Alam</option>
+                  <option value="B6">Lama Kunjungan</option>
+                  <option value="B7">Penghasilan Daerah</option>
                 </select>
               </div>
 

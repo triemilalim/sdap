@@ -21,8 +21,9 @@ $total = ControllerDashboard::ctrTotalKategoriRestoran();
 <div class="box box-default">
 	
 	<div class="box-header with-bvalue">
+      <i class="fa fa-glass"></i>
   
-      <h3 class="box-title">Ketegori Restoran Berdasarkan Makanan</h3>
+      <h3 class="box-title">Kategori Restoran Berdasarkan Makanan</h3>
 
     </div>
 

@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>SDap Pariwisata</title>
+  <title>Aplikasi SDAP</title>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -38,6 +38,9 @@
   <!-- AdminLTE Skins -->
   <link rel="stylesheet" href="views/dist/css/skins/_all-skins.min.css"> 
 
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="views/bower_components/bootstrap-daterangepicker/daterangepicker.css">
+  
   <!-- Google Font -->
  <!--  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">  -->
 
@@ -87,10 +90,13 @@
   <!-- Morris.js charts http://morrisjs.github.io/morris.js/-->
   <script src="views/bower_components/raphael/raphael.min.js"></script>
   <script src="views/bower_components/morris.js/morris.min.js"></script>
+
+  <!-- daterangepicker http://www.daterangepicker.com/-->
+  <script src="views/bower_components/moment/min/moment.min.js"></script>
+  <script src="views/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
   
   <!-- ChartJS http://www.chartjs.org/-->
   <script src="views/bower_components/Chart.js/Chart.js"></script>
-  
 </head>
 
 <body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
@@ -124,7 +130,14 @@
         if ($_GET["route"] == 'home' || 
             $_GET["route"] == 'users' ||
             $_GET["route"] == 'input-data' ||
+            $_GET["route"] == 'input-data-bulanan' ||
             $_GET["route"] == 'approval'||
+            $_GET["route"] == 'cetak-laporan'||
+            $_GET["route"] == 'cetak-laporan-provinsi'||
+            $_GET["route"] == 'tampil-data-budaya'||
+            $_GET["route"] == 'tampil-data-bahari'||
+            $_GET["route"] == 'tampil-data-cagar-alam'||
+            $_GET["route"] == 'tampil-data-alam'||
             $_GET["route"] == 'logout'){
 
           include "modules/".$_GET["route"].".php";
@@ -166,6 +179,9 @@
 <script src="views/js/users.js"></script>
 <script src="views/js/input-data.js"></script>
 <script src="views/js/approval.js"></script>
+<script src="views/js/cetak-laporan.js"></script>
+<script src="views/js/cetak-laporan-provinsi.js"></script>
+
 
 
 </body>

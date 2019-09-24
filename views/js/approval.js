@@ -3,9 +3,11 @@ xxxx
 =============================================*/
 
 $(document).on("click", ".btnApprove", function(){
+	var statusApprove = $(this).attr("statusApprove");
+	console.log("statusApprove", statusApprove);
 
 	var dataId = $(this).attr("dataId");
-	var statusApprove = $(this).attr("statusApprove");
+	console.log("dataId", dataId);
 
 	var datum = new FormData();
 	datum.append("approveId", dataId);
@@ -21,42 +23,49 @@ $(document).on("click", ".btnApprove", function(){
 		processData: false,
 		success: function(answer){
 
-      	console.log("answer", answer);
+ 		}
+ 	})
 
-      	if(window.matchMedia("(max-width:767px)").matches){
+      	// if(window.matchMedia("(max-width:767px)").matches){
 
-      		swal({
-      			title: "The user status has been updated",
-      			type: "success",
-      			confirmButtonText: "Close"	
-      		}).then(function(result) {
+      	// 	swal({
+      	// 		title: "The user status has been updated",
+      	// 		type: "success",
+      	// 		confirmButtonText: "Close"	
+      	// 	}).then(function(result) {
 
-      			if (result.value) {
-      				window.location = "approval";
-      			}
+      	// 		if (result.value) {
+      	// 			window.location = "approval";
+      	// 		}
 
-      		})
+      	// 	})
 
-      	}
+      	// }
+      
 
-      }
+      	
 
-  })
 
 	if(statusApprove == 0){
-
-		$(this).removeClass('btn-success');
-		$(this).addClass('btn-danger');
-		$(this).html('Belum Disetujui');
+		$('#'+ dataId).removeClass('btn-success');
+		$('#'+ dataId).removeClass('btn-danger');
+		$('#'+ dataId).addClass('btn-warning');
+		$('#'+ dataId).html('Belum Disetujui');
 		$(this).attr('statusApprove',1);
 
-	}else{
-
-		$(this).addClass('btn-success');
-		$(this).removeClass('btn-danger');
-		$(this).html('Disetujui');
+	}else if (statusApprove == 1){
+		$('#'+ dataId).addClass('btn-success');
+		$('#'+ dataId).removeClass('btn-danger');
+		$('#'+ dataId).removeClass('btn-warning');
+		$('#'+ dataId).html('Disetujui');
 		$(this).attr('statusApprove',0);
 
+	} else {
+		$('#'+ dataId).addClass('btn-danger');
+		$('#'+ dataId).removeClass('btn-warning');
+		$('#'+ dataId).removeClass('btn-success');
+		$('#'+ dataId).html('Ditolak');
+		$(this).attr('statusApprove',2);
 	}
 
 });

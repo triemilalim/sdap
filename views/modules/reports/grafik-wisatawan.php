@@ -79,11 +79,11 @@ GRAFIK WISATAWAN DOMESTIK
 ======================================-->
 
 
-<div class="box box-solid bg-teal-gradient">
+<div class="box box-solid bg-teal">
 	
 	<div class="box-header">
 		
- 		<i class="fa fa-th"></i>
+ 		<i class="fa fa-male"></i>
 
   		<h3 class="box-title">Grafik Wisatawan</h3>
 

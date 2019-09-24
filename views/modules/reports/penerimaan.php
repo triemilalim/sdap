@@ -74,13 +74,13 @@ $noRepeatDates = array_unique($arrayDates);
 
 ?>
 
-<div class="box box-solid bg-teal-gradient">
+<div class="box box-solid bg-teal">
 	
 	<div class="box-header">
 		
- 		<i class="fa fa-th"></i>
+ 		<i class="fa fa-money"></i>
 
-  		<h3 class="box-title">Grafik Penerimaan Dearah dari Pariwisata</h3>
+  		<h3 class="box-title">Grafik Penerimaan Daerah dari Pariwisata</h3>
 
 	</div>
 
@@ -100,13 +100,11 @@ $noRepeatDates = array_unique($arrayDates);
     data             : [
 
     <?php
-
     if($noRepeatDates != null){
 
 	    foreach($noRepeatDates as $key){
 
 	    	echo "{ Periode: '".$key."', pajak: ".$pertambahan[$key].", restribusi: ".$pertambahan2[$key]." },";
-
 
 	    }
 
@@ -117,7 +115,6 @@ $noRepeatDates = array_unique($arrayDates);
        echo "{ Periode: '0', pajak: '0', restribusi:'0' }";
 
     }
-
     ?>
 
     ],

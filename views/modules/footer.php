@@ -1,7 +1,7 @@
 <footer class="main-footer">
 
-	<strong>Copyright &copy; 2018 <a href="http://tutorialsonyourdesk.com" target="_blank">Tutorials on your desk</a></strong>
-	
+	<strong>Copyright &copy; 2019 Kelompok 3 Diklat Prakom Terampil Angkatan 2</strong>
+	<br>
 	All rights reserved
 
 </footer>

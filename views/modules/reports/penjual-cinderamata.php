@@ -20,6 +20,7 @@ $total = ControllerDashboard::ctrTotalPenjualCinderamata();
 <div class="box box-default">
 	
 	<div class="box-header with-bvalue">
+  <i class="fa fa-shopping-basket"></i>
   
       <h3 class="box-title">Pusat Penjualan Cinderamata</h3>
 

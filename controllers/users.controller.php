@@ -12,8 +12,6 @@ class ControllerUsers{
 			
 			if (preg_match('/^[a-zA-Z0-9]+$/', $_POST["loginUser"]) && 
 				preg_match('/^[a-zA-Z0-9]+$/', $_POST["loginPass"])) {
-
-				// $encryptpass = crypt($_POST["loginPass"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 				
 				$table = 'user';
 				$table2= 'ref_kode_lokasi';
@@ -22,8 +20,6 @@ class ControllerUsers{
 				$value = $_POST["loginUser"];
 
 				$answer = UsersModel::MdlShowUsers($table, $table2, $item, $value);
-
-				// var_dump($answer);
 
 				if($answer["nip"] == $_POST["loginUser"] && $answer["password"] == $_POST["loginPass"]){
 

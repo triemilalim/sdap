@@ -3,7 +3,6 @@
  class ControllerDataPariwisata {
 
 	static public function ctrCreateDataPariwisata(){
-
 		if(isset($_POST['addJenisData'])){
 			$data = array('kode_data' => $_POST["addNamaData"],
 				'kode_lokasi' => $_SESSION["kode_lokasi"],
@@ -14,8 +13,11 @@
 			$table = 'data_pariwisata';
 			
 				$answer = DataPariwisataModel::mdlCreateDataPariwisata($table, $data);
-				var_dump($answer);
-				if($answer == 'ok'){
+				// var_dump($answer);
+				$x = substr($answer,0,1);
+				var_dump($x);	
+				if($x == 'B'){
+					if($answer == $data['kode_data']){
 
 					echo '<script>
 						
@@ -27,16 +29,53 @@
 
 							}).then(function(result){
 								if (result.value) {
+									
+									window.location = "input-data-bulanan";
 
+								}
+							});
+						
+						</script>';
+				} else {
+					echo '<script>
+						
+						swal({
+							type: "error",
+							title: "Gagal Tambah data",
+							showConfirmButton: true,
+							confirmButtonText: "Close"
+				
+							 }).then(function(result){
+
+								if (result.value) {
+									window.location = "input-data-bulanan";
+								}
+							});
+						
+						</script>';
+
+				}
+				} else {
+					if($answer == $data['kode_data']){
+
+					echo '<script>
+						
+						swal({
+							type: "success",
+							title: "Data berhasil ditambahkan !",
+							showConfirmButton: true,
+							confirmButtonText: "Close"
+
+							}).then(function(result){
+								if (result.value) {
+									
 									window.location = "input-data";
 
 								}
 							});
 						
-					</script>';
-				} 
-				else {
-
+						</script>';
+				} else {
 					echo '<script>
 						
 						swal({
@@ -52,41 +91,23 @@
 								}
 							});
 						
-				</script>';
+						</script>';
 
 				}
+				}
+				
 				
 
-			// }else{
-
-			// 	echo '<script>
-						
-			// 			swal({
-			// 				type: "error",
-			// 				title: "No especial characters or blank fields",
-			// 				showConfirmButton: true,
-			// 				confirmButtonText: "Close"
-				
-			// 				 }).then(function(result){
-
-			// 					if (result.value) {
-			// 						window.location = "categories";
-			// 					}
-			// 				});
-						
-			// 	</script>';
-				
-			}
+		}
 	}
 
 
-	static public function ctrShowDataPariwisata($item , $value , $tahun, $bulan){
+	static public function ctrShowDataPariwisata($item , $value , $tahun, $bulan ,$jenisData){
 		
 		$tableDataPariwisata = "data_pariwisata";
 		$tableRefKodeData = "ref_kode_data";
-		// $kuantitas = 'kuantitas';
 
-		$answer = DataPariwisataModel::mdlShowDataPariwisata($tableDataPariwisata,$tableRefKodeData,$item ,$value,$tahun,$bulan);
+		$answer = DataPariwisataModel::mdlShowDataPariwisata($tableDataPariwisata,$tableRefKodeData,$item ,$value,$tahun,$bulan,$jenisData);
 		return $answer;
 	}
 
@@ -199,6 +220,7 @@
 		
 		}
 	}
+
 }
 
 	

@@ -15,32 +15,24 @@
 				</a>
 
 			</li>
-
 			
-			<!-- Pengumuman -->
 			<?php 
-			if($_SESSION["role"]=="opr_wil"){
-				echo'
+
+			if ($_SESSION["role"] == "admin"){
+				echo '			
 				<li>
 
-						<a href="Pengumuman">
+					<a href="Pengumuman">
 
-							<i class="fa fa-bullhorn"></i>
+						<i class="fa fa-bullhorn"></i>
 
-							<span>Pengumuman</span>
+						<span>Pengumuman</span>
 
-						</a>
+					</a>
 
-					</li>
-				';
-			}
-			?>
-					
-			<!-- User management -->
-				<?php 
-					if ($_SESSION["role"] == "admin"){
-					echo'
-					<li>
+				</li>
+
+				<li>
 
 					<a href="users">
 
@@ -50,76 +42,63 @@
 
 					</a>
 
-				  </li>
-					';
-						
-					}
-				
-				?>
-				
-			<!-- Input Data -->
-			<?php 
-				if ($_SESSION["role"] == "opr_kab"){
-					echo '
-					<li class="treeview">
+				</li>';
+			}
+
+
+			if ($_SESSION["role"] == "opr_kab") {
+				echo '
+
+				<li class="treeview">
 
 					<a href="#">
-		
+
 						<i class="fa fa-list-ul"></i>
-		
+
 						<span>Input Data</span>
-		
+
 						<span class="pull-right-container">
-		
+
 							<i class="fa fa-angle-left pull-right"></i>
-		
+
 						</span>
-		
+
 					</a>
-		
+
 					<ul class="treeview-menu">
-		
+
 						<li>
-		
+
 							<a href="input-data">
-		
+
 								<i class="fa fa-circle"></i>
-		
+
 								<span>Input Data Tahunan</span>
-		
+
 							</a>
-		
+
 						</li>
-		
-		
+
+
 						<li>
-		
-							<a href="create-sales">
-		
+
+							<a href="input-data-bulanan">
+
 								<i class="fa fa-circle"></i>
-		
+
 								<span>Input Data Bulanan</span>
-		
+
 							</a>
-		
+
 						</li>
-						
-		
+
+
 					</ul>
-
-					';
-			
-				}
-
-			
-			?>
-
-			<!-- Approval -->
-			<?php 
-				if($_SESSION["role"]=="apr_kab"){
-					echo'
+				<li>';
+			}
+			if ($_SESSION["role"] == "apr_kab"){
+				echo '	
 					<li>
-
 						<a href="approval">
 
 							<i class="fa fa-check"></i>
@@ -128,16 +107,39 @@
 
 						</a>
 
-					</li>
-					';
-				}
+					</li>';
+			}
+
+			if ($_SESSION["role"] == "opr_kab"){
+				echo '	
+					<li>
+						<a href="cetak-laporan">
+						
+							<i class="fa fa-product-hunt"></i>
+
+							<span>Export Data</span>
+
+						</a>
+
+					</li>';
+			}
+
+			if ($_SESSION["role"] == "opr_wil"){
+				echo '	
+					<li>
+						<a href="cetak-laporan-provinsi">
+
+							<i class="fa fa-product-hunt"></i>
+
+							<span>Export Data</span>
+
+						</a>
+
+					</li>';
+			}
 			?>
-			
-					
+			</ul>
 
-			
-		</ul>
+		</section>
 
-	</section>
-	
-</aside>
+	</aside>

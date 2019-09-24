@@ -10,21 +10,12 @@ $TotalObjWisataCagarAlam = ControllerDashboard::ctrTotalDataObjekWisataCagarAlam
 $TotalObjWisataPertanian = ControllerDashboard::ctrTotalDataObjekWisataPertanian();
 $TotalObjWisataAlam = ControllerDashboard::ctrTotalDataObjekWisataAlam();
 
-// $categories = ControllerCategories::ctrShowCategories($item, $value);
-// $totalCategories = count($categories);
-
-// $customers = ControllerCustomers::ctrShowCustomers($item, $value);
-// $totalCustomers = count($customers);
-
-// $products = ControllerProducts::ctrShowProducts($item, $value, $order);
-// $totalProducts = count($products);
-
 ?>
 
 
 <div class="col-lg-3 col-xs-6">
 
-  <div class="small-box bg-aqua">
+  <div class="small-box bg-yellow-gradient">
     
     <div class="inner">
       
@@ -39,12 +30,18 @@ $TotalObjWisataAlam = ControllerDashboard::ctrTotalDataObjekWisataAlam();
       <i class="ion-earth"></i>
     
     </div>
-    
-    <!-- <a href="sales" class="small-box-footer">
+
+    <?php
+    if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'opr_wil'){
+    echo '
+    <a href="tampil-data-budaya" class="small-box-footer">
       
-      More info <i class="fa fa-arrow-circle-right"></i>
+      Tampilkan Data <i class="fa fa-arrow-circle-right"></i>
     
-    </a> -->
+    </a>
+    ';
+    }
+    ?>
 
   </div>
 
@@ -54,7 +51,7 @@ $TotalObjWisataAlam = ControllerDashboard::ctrTotalDataObjekWisataAlam();
 
 <div class="col-lg-3 col-xs-6">
 
-  <div class="small-box bg-aqua">
+  <div class="small-box bg-blue-gradient">
     
     <div class="inner">
       
@@ -66,15 +63,20 @@ $TotalObjWisataAlam = ControllerDashboard::ctrTotalDataObjekWisataAlam();
     
     <div class="icon">
       
-      <i class="ion-earth"></i>
+      <i class="ion-ios-analytics-outline"></i>
     
     </div>
-    
-    <!-- <a href="sales" class="small-box-footer">
+    <?php
+    if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'opr_wil'){
+    echo '
+    <a href="tampil-data-bahari" class="small-box-footer">
       
-      More info <i class="fa fa-arrow-circle-right"></i>
+      Tampilkan Data <i class="fa fa-arrow-circle-right"></i>
     
-    </a> -->
+    </a>
+    ';
+    }
+    ?>
 
   </div>
 
@@ -84,7 +86,7 @@ $TotalObjWisataAlam = ControllerDashboard::ctrTotalDataObjekWisataAlam();
 
 <div class="col-lg-3 col-xs-6">
 
-  <div class="small-box bg-aqua">
+  <div class="small-box bg-green-gradient">
     
     <div class="inner">
       
@@ -96,22 +98,27 @@ $TotalObjWisataAlam = ControllerDashboard::ctrTotalDataObjekWisataAlam();
     
     <div class="icon">
       
-      <i class="ion-earth"></i>
+      <i class="ion-map"></i>
     
     </div>
-    
-    <!-- <a href="sales" class="small-box-footer">
+    <?php
+    if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'opr_wil'){
+    echo '
+    <a href="tampil-data-cagar-alam" class="small-box-footer">
       
-      More info <i class="fa fa-arrow-circle-right"></i>
+      Tampilkan Data <i class="fa fa-arrow-circle-right"></i>
     
-    </a> -->
+    </a>
+    ';
+    }
+    ?>
 
   </div>
 
 </div>
 
 
-
+<!--
 <div class="col-lg-3 col-xs-6">
 
   <div class="small-box bg-aqua">
@@ -130,23 +137,18 @@ $TotalObjWisataAlam = ControllerDashboard::ctrTotalDataObjekWisataAlam();
     
     </div>
     
-    <!-- <a href="sales" class="small-box-footer">
-      
-      More info <i class="fa fa-arrow-circle-right"></i>
-    
-    </a> -->
 
   </div>
 
 </div>
-
+-->
 
 
 
 
 <div class="col-lg-3 col-xs-6">
 
-  <div class="small-box bg-aqua">
+  <div class="small-box bg-aqua-gradient">
     
     <div class="inner">
       
@@ -158,15 +160,20 @@ $TotalObjWisataAlam = ControllerDashboard::ctrTotalDataObjekWisataAlam();
     
     <div class="icon">
       
-      <i class="ion-earth"></i>
+      <i class="ion-leaf"></i>
     
     </div>
-    
-    <!-- <a href="sales" class="small-box-footer">
+    <?php
+    if ($_SESSION['role'] == 'admin' || $_SESSION['role'] == 'opr_wil'){
+    echo '
+    <a href="tampil-data-alam" class="small-box-footer">
       
-      More info <i class="fa fa-arrow-circle-right"></i>
+      Tampilkan Data <i class="fa fa-arrow-circle-right"></i>
     
-    </a> -->
+    </a>
+    ';
+    }
+    ?>
 
   </div>
 

@@ -7,7 +7,7 @@ class ControllerDashboard {
     public function ctrTotalDataObjekWisataBudaya(){
 
         $table = "data_pariwisata";
-        $year = "2019";
+        $year = getdate()['year'];
         // $year = $_SESSION["tahun"];
 
         $answer = ModelDashboard::mdlTotalDataObjekWisataBudaya($table, $year);
@@ -19,7 +19,7 @@ class ControllerDashboard {
     public function ctrTotalDataObjekWisataBahari(){
 
         $table = "data_pariwisata";
-        $year = "2019";
+        $year = getdate()['year'];
         // $year = $_SESSION["tahun"];
     
         $answer = ModelDashboard::mdlTotalDataObjekWisataBahari($table, $year);
@@ -31,7 +31,7 @@ class ControllerDashboard {
     public function ctrTotalDataObjekWisataCagarAlam(){
 
         $table = "data_pariwisata";
-        $year = "2019";
+        $year = getdate()['year'];
         // $year = $_SESSION["tahun"];
     
         $answer = ModelDashboard::mdlTotalDataObjekWisataCagarAlam($table, $year);
@@ -43,7 +43,7 @@ class ControllerDashboard {
     public function ctrTotalDataObjekWisataPertanian(){
 
         $table = "data_pariwisata";
-        $year = "2019";
+        $year = getdate()['year'];
         // $year = $_SESSION["tahun"];
     
         $answer = ModelDashboard::mdlTotalDataObjekWisataPertanian($table, $year);
@@ -55,7 +55,7 @@ class ControllerDashboard {
     public function ctrTotalDataObjekWisataAlam(){
 
         $table = "data_pariwisata";
-        $year = "2019";
+        $year = getdate()['year'];
         // $year = $_SESSION["tahun"];
     
         $answer = ModelDashboard::mdlTotalDataObjekWisataAlam($table, $year);
@@ -263,12 +263,27 @@ static public function ctrPenjualCinderamata(){
 
 static public function ctrTotalPenjualCinderamata(){
 
-$table = "data_pariwisata";
+    $table = "data_pariwisata";
 
-$answer = ModelDashboard::mdlTotalPenjualCinderamata($table);
+    $answer = ModelDashboard::mdlTotalPenjualCinderamata($table);
 
-return $answer;
+    return $answer;
 
+  }
+
+static public function ctrTampilDataWisata($kode_data){
+
+  $year = getdate()['year'];
+  $tableDataPariwisata = "data_pariwisata";
+  $tableRefKodeData = "ref_kode_data";
+  $tableRefKodeLokasi = "ref_kode_lokasi";
+
+
+  $answer = ModelDashboard::mdlTampilDataWisata($tableDataPariwisata,$tableRefKodeData,$tableRefKodeLokasi,$kode_data,$year);
+  
+  // var_dump($answer);
+
+  return $answer;
 }
     
 

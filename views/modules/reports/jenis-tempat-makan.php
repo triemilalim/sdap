@@ -21,7 +21,7 @@ $total = ControllerDashboard::ctrTotalTempatMakan();
 <div class="box box-default">
 	
 	<div class="box-header with-bvalue">
-  
+      <i class="fa fa-cutlery"></i>
       <h3 class="box-title">Jenis Tempat Makan</h3>
 
     </div>

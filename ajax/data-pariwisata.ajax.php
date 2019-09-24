@@ -44,14 +44,13 @@ class AjaxDataPariwisata{
 		$tahun = null;
 		$item = "id";
 		$value = $this ->idDataPariwisataUntukEditData;
+		$jenisData = " ";
 
-		$answer = ControllerDataPariwisata::ctrShowDataPariwisata($item, $value , $tahun, $bulan);
+		$answer = ControllerDataPariwisata::ctrShowDataPariwisata($item, $value , $tahun, $bulan,$jenisData);
 
 		echo json_encode($answer);
 
 	}
-
-
 }
 
 
@@ -69,7 +68,6 @@ if (isset($_POST["idDataPariwisataUntukEditData"])) {
 	$editDataPariwisata -> idDataPariwisataUntukEditData = $_POST["idDataPariwisataUntukEditData"];
 	$editDataPariwisata -> ajaxEditDataPariwisata();
 }
-
 
 
 

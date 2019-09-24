@@ -20,6 +20,7 @@ $total = ControllerDashboard::ctrTotalJasaWisata();
 <div class="box box-default">
 	
 	<div class="box-header with-bvalue">
+      <i class="fa fa-car"></i>
   
       <h3 class="box-title">Jenis Jasa Wisata</h3>
 

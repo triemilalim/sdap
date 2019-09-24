@@ -6,7 +6,7 @@
 
       Dashboard
       
-      <small>Control panel</small>
+      <small>Data Kepariwisataan Provinsi Riau</small>
 
     </h1>
 
@@ -21,10 +21,23 @@
   </section>
 
   <section class="content">
+    
+<div class="row">
+  
+  <?php
+
+    // if($_SESSION["profile"] =="Administrator"){
+
+      include "reports/top-boxes.php";
+
+    // }
+
+  ?>
+  </div>
 
   <div class="row">
 
-<div class="col-lg-12">
+<div class="col-lg-4">
 
   <?php
 
@@ -38,7 +51,7 @@
   
   </div>
 
-  <div class="col-lg-6">
+  <div class="col-lg-4">
 
   <?php
 
@@ -52,7 +65,7 @@
   
   </div>
 
-  <div class="col-lg-6">
+  <div class="col-lg-4">
     
     <?php
 
@@ -153,18 +166,6 @@
 
 </div>
 
-<div class="row">
-  
-  <?php
-
-    // if($_SESSION["profile"] =="Administrator"){
-
-      include "reports/top-boxes.php";
-
-    // }
-
-  ?>
-    </div>
 
   </section>
 

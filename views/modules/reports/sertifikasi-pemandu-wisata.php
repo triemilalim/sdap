@@ -18,9 +18,10 @@ $total = ControllerDashboard::ctrTotalPemanduWisata();
 ?>
 
 <div class="box box-default">
-	
+
 	<div class="box-header with-bvalue">
   
+  <i class="fa fa-address-card-o"></i>
       <h3 class="box-title">Sertifikasi Pemandu Wisata</h3>
 
     </div>

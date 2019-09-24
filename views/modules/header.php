@@ -16,7 +16,7 @@
 
 		<span class="logo-lg">
 
-			<img class="img-responsive" src="views/img/template/SDAPlogo-blanco-lineal.png" style="padding: 10px 0" >
+			<img class="img-responsive" src="views/img/template/SDAPlogo-blanco-lineal.png" style="padding: 10px" >
 
 		</span>
 
@@ -68,6 +68,22 @@
 					<ul class="dropdown-menu">
 
 						<li class="user-body">
+							<p>
+							Role: 
+							</p>
+							<?php 
+
+							if ($_SESSION["role"] == "opr_kab") {
+								echo "Operator Kabupaten";
+							} elseif ($_SESSION["role"] == "apr_kab") {
+								echo "Approval Kabupaten";
+							} elseif ($_SESSION["role"] == "opr_wil") {
+								echo "Operator Kanwil";
+							} else {
+								echo $_SESSION["role"];
+							}
+
+							?>
 
 							<div class="pull-right">
 

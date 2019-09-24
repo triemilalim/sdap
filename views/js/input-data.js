@@ -21,7 +21,7 @@ function getJenisData(){
      	processData: false,
      	dataType:"json",
      	success: function(answer){
-     		console.log("answer", answer);
+     		console.log("sukses", answer);
      			data = answer;
      		    optionPilihNama.options.length=0;
                 for (var i = 0; i < answer.length; i++){
@@ -103,66 +103,6 @@ function getNamaDataEdit() {
 
 }	         
 
-$(document).on("click", ".btnPersetujuan", function(){
-
-	var idDataPariwisata = $(this).attr("idDataPariwisata");
-	console.log("idDataPariwisata", idDataPariwisata);
-	var statusApproved = $(this).attr("statusApproved");
-	console.log("statusApproved", statusApproved);
-
-	var datum = new FormData();
-	datum.append("idDataPariwisata", idDataPariwisata);
-	datum.append("statusApproved", statusApproved);
-
-	$.ajax({
-
-		url:"ajax/data-pariwisata.ajax.php",
-		method: "POST",
-		data: datum,
-		cache: false,
-		contentType: false,
-		processData: false,
-		success: function(answer){
-
-      	// if(window.matchMedia("(max-width:767px)").matches){
-
-      		swal({
-      			title: "The user status has been updated",
-      			type: "success",
-      			confirmButtonText: "Close"	
-      		}).then(function(result) {
-
-      			if (result.value) {
-      				window.location = "input-data";
-      			}
-
-      		})
-
-      	}
-
-      // }
-
-  })
-
-	// 0 = belum disetujui 
-	// 1 = sudah disetujui 
-	if(statusApproved == 0){
-
-		$(this).removeClass('btn-success');
-		$(this).addClass('btn-danger');
-		$(this).html('Belum Setuju');
-		$(this).attr('statusApproved',1);
-
-	}else{
-
-		$(this).addClass('btn-success');
-		$(this).removeClass('btn-danger');
-		$(this).html('Setuju');
-		$(this).attr('statusApproved',0);
-
-	}
-
-});
 
 $(document).on("click", ".btnDeleteDataPariwisata", function(){
 	
@@ -229,15 +169,8 @@ $(document).on("click", "#btnAddDataPariwisata", function(){
 
 			console.log("answer" , answer);
 
-			if(tanggalSekarang > answer['tanggal']){
-				swal({
-					title: "Tanggal Sekarang Lebih dari tanggal deadline",
-					type: "error",
-					confirmButtonText: "Close"	
-				});
-			}else{
 				$('#addDataPariwisata').modal('show');
-			}
+			
 
 
 
@@ -248,8 +181,22 @@ $(document).on("click", "#btnAddDataPariwisata", function(){
 
 $(document).on("click", ".btnEditDataPariwisata", function(){
 	// $('#editNamaData').prop('disabled', 'disabled');
+
 	var idDataPariwisatax = $(this).attr("idDataPariwisata");
 	console.log("idDataPariwisata", idDataPariwisatax);
+	var statusApproved = $(this).attr("statusApproved");
+	console.log("statusApproved", statusApproved);
+
+
+	if(statusApproved != 0){
+		swal({
+			title: "Maaf Status sudah disetujui",
+			type: "error",
+			confirmButtonText: "Close"	
+		});
+	} else {
+		$('#editDataPariwisata').modal('show');
+	}
 
 	var datum = new FormData();
 	datum.append("idDataPariwisataUntukEditData", idDataPariwisatax);
@@ -265,7 +212,7 @@ $(document).on("click", ".btnEditDataPariwisata", function(){
 		processData: false,
 		dataType: "json",
 		success: function(answer){
-
+			console.log("answer" , answer);
 			var kode_data = answer["kode_data"];
 			var substring_kodedata = kode_data.substring(0, 2);
 

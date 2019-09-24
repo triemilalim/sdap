@@ -6,22 +6,9 @@ class DataPariwisataModel {
  // kode_data , kode_lokasi , kuantitas , tahun , bulan , approved
 	static public function mdlCreateDataPariwisata ($table, $data){
 		var_dump($data);
-		//  ["kode_data"]=> string(3) "T12" 
-		//  ["kode_lokasi"]=> string(1) "1"
-		//   ["kuantitas"]=> string(2) "44" 
-		//   ["tahun"]=> string(4) "2019" 
-		//   ["bulan"]=> string(1) "9" }
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(kode_data, kode_lokasi, kuantitas, tahun, bulan, approved) VALUES (:kode_data, :kode_lokasi, :kuantitas, :tahun, :bulan, :approved)");
 		var_dump($stmt);
-		// $stmt = Connection::connect()->prepare("INSERT INTO data_parisiwata(kode_data, kode_lokasi, kuantitas, tahun, bulan, approved) VALUES ('T11' , 1 , 30 , 2018 , 9 ,1)");
-		// var_dump($stmt);
-		// $data = array('kode_data' => $_POST["addJenisData"],
-		// 		'kode_lokasi' => $_SESSION["kode_lokasi"],
-		// 		'kuantitas' => $_POST["addKuantitas"],
-		// 		'tahun' => $_POST["addTahun"],
-		// 		'bulan' => $_POST["addBulan"]);
-		// 		// 'satuan' => $_POST["addSatuan"]
 
 		$stmt -> bindParam(":kode_data", $data["kode_data"], PDO::PARAM_STR);
 		$stmt -> bindParam(":kode_lokasi", $data["kode_lokasi"], PDO::PARAM_INT);
@@ -29,9 +16,9 @@ class DataPariwisataModel {
 		$stmt -> bindParam(":tahun", $data["tahun"], PDO::PARAM_INT);
 		$stmt -> bindParam(":bulan", $data["bulan"], PDO::PARAM_INT);
 		$stmt -> bindParam(":approved", $data["approved"], PDO::PARAM_INT);
-		// echo $stmt;
+
 		if ($stmt->execute()) {
-			return 'ok';
+			return $data["kode_data"];
 		
 		} else {
 			return 'error';
@@ -43,14 +30,28 @@ class DataPariwisataModel {
 	}
 
 
-	static public function mdlShowDataPariwisata ($tableDataPariwisata,$tableRefKodeData,$item , $value,$tahun, $bulan){
+	static public function mdlShowDataPariwisata ($tableDataPariwisata,$tableRefKodeData,$item , $value,$tahun, $bulan,$jenisData){
 		
-		// $item = "id";
-		// $value = $this ->idPariwisataUntukEditData;
+		if($jenisData=="B"){ //JENIS DATA BULANAN
+			if($item != null){
+				$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and a".".kode_data = b".".kode_data" );
+		
+				$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 
-		if($item != null){
-			// $stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from data_pariwisata a , ref_kode_data b where id = 4129 and a.kode_data = b.kode_data");
-			// var_dump($stmt);
+				$stmt -> execute();
+
+				return $stmt -> fetch();
+
+			} else {
+				$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%'" );
+				
+				$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
+				$stmt -> execute();
+
+				return $stmt -> fetchAll();
+			}
+		} else { //JENIS DATA TAHUNAN
+			if($item != null){
 			$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and a".".kode_data = b".".kode_data");
 	
 			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
@@ -60,14 +61,15 @@ class DataPariwisataModel {
 			return $stmt -> fetch();
 
 		} else {
-			$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and a".".kode_data = b".".kode_data");
-			// $stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from data_pariwisata a , ref_kode_data b where id = 4129 and a.kode_data = b.kode_data");
+			$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and a".".kode_data = b".".kode_data and a.kode_data LIKE 'T%'");
 			
 			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 			$stmt -> execute();
 
 			return $stmt -> fetchAll();
 		}
+		}
+		
 
 		$stmt -> close();
 

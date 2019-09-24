@@ -45,6 +45,7 @@
              <th>Kuantitas</th>
              <th>Satuan</th>
              <th>Status</th>
+             <th>Aksi</th>
            </tr> 
 
          </thead>
@@ -52,7 +53,8 @@
          <tbody>
 
             <?php 
-
+            // $tahun=getdate()['year'];
+            // $bulan = getdate()['mon'] -1;
             $approval = ControllerApproval::ctrShowData();
             foreach ($approval as $key => $value){
               echo'
@@ -60,19 +62,38 @@
                 <td>'.($key+1).'</td>
                 <td>'.$value["keterangan"].'</td>
                 <td>'.$value["kuantitas"].'</td>
-                <td>'.$value["satuan"].'</td>
-                ';
-              
-                if($value["approved"] == 1){
-                  echo'
-                  <td><button class="btn btn-success btnApprove btn-xs" dataId="'.$value["id"].'" statusApprove="0">Disetujui</button></td>
-                  ';
-                }else{
-                  echo'
-                  <td><button class="btn btn-danger btnApprove btn-xs" dataId="'.$value["id"].'" statusApprove="1">Belum Disetujui</button></td>
-                  ';
+                <td>'.$value["satuan"].'</td>';
+
+                if($value["approved"] == 0){
+                  echo '<td>
+                          <button class="btn btn-warning btn-xs" id="'.$value["id"].'">Belum Disetujui</button>
+                      </td>';
+                } elseif ($value["approved"] == 1) {
+                  echo '<td>
+                          <button class="btn btn-success btn-xs" id="'.$value["id"].'" statusApprove="">Disetujui</button>
+                      </td>';
+                } else{
+                  echo '<td>
+                          <button class="btn btn-danger btn-xs" id="'.$value["id"].'" statusApprove="">Ditolak</button>
+                      </td>';
                 }
-                echo'
+
+                echo '
+                <td>
+                  <div class="btn-group">';
+                  if($value["approved"] == 1){
+                    echo '<button class="btn btn-success btnApprove" dataId="'.$value["id"].'" statusApprove="0"><i class="fa fa-check"></i>
+                    </button>';
+                  } else{
+                     echo '<button class="btn btn-success btnApprove" dataId="'.$value["id"].'" statusApprove="1"><i class="fa fa-check"></i>
+                    </button>';     
+                  }
+                  echo '<button class="btn btn-danger btnApprove" dataId="'.$value["id"].'" statusApprove="2"><i class="fa fa-times"></i>
+                    </button>          
+                  </div>  
+
+                </td>
+
                 </tr>';
                 
             }
