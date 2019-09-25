@@ -131,7 +131,8 @@
             $_GET["route"] == 'users' ||
             $_GET["route"] == 'input-data' ||
             $_GET["route"] == 'input-data-bulanan' ||
-            $_GET["route"] == 'approval'||
+            $_GET["route"] == 'approval-bulanan'||
+            $_GET["route"] == 'approval-tahunan'||
             $_GET["route"] == 'cetak-laporan'||
             $_GET["route"] == 'cetak-laporan-provinsi'||
             $_GET["route"] == 'edit-jatuh-tempo'||

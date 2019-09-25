@@ -113,12 +113,12 @@ $total = ControllerDashboard::ctrTotalPemanduWisata();
   <?php
 
   for($i = 0; $i < 2; $i++){
-
+    $datafiltered = str_replace("Pemandu Wisata","",$data[$i]["keterangan"]);
   	echo "{
       value    : ".$data[$i]["kuantitas"].",
       color    : '".$colours[$i]."',
       highlight: '".$colours[$i]."',
-      label    : '".$data[$i]["keterangan"]."'
+      label    : '".$datafiltered."'
     },";
 
   }

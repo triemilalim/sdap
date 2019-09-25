@@ -26,7 +26,7 @@
 
         <?php
         $tahun=getdate()['year'];
-        $bulan = getdate()['mon']-1;   
+        $bulan = 1;   
         $bulanValidasi = getdate()['mon'];
         // $monthName = date("F", mktime(0, 0, 0, $bulan, 10));  
         // var_dump($monthName);
@@ -108,7 +108,7 @@
               $item = null;
               $value = null;
               $tahun=getdate()['year'];
-              $bulan = getdate()['mon'] -1;
+              $bulan = 1;
               $jenisData = "T";
               $lokasi = $_SESSION['kode_lokasi'];
 

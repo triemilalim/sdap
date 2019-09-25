@@ -98,16 +98,52 @@
 			}
 			if ($_SESSION["role"] == "apr_kab"){
 				echo '	
-					<li>
-						<a href="approval">
+					<li class="treeview">
 
-							<i class="fa fa-check"></i>
+					<a href="#">
 
-							<span>Approval</span>
+						<i class="fa fa-check"></i>
 
-						</a>
+						<span>Approval</span>
 
-					</li>';
+						<span class="pull-right-container">
+
+							<i class="fa fa-angle-left pull-right"></i>
+
+						</span>
+
+					</a>
+
+					<ul class="treeview-menu">
+
+						<li>
+
+							<a href="approval-bulanan">
+
+								<i class="fa fa-circle"></i>
+
+								<span>Data Bulanan</span>
+
+							</a>
+
+						</li>
+
+
+						<li>
+
+							<a href="approval-tahunan">
+
+								<i class="fa fa-circle"></i>
+
+								<span>Data Tahunan</span>
+
+							</a>
+
+						</li>
+
+
+					</ul>
+				<li>';
 			}
 
 			if ($_SESSION["role"] == "opr_kab"){

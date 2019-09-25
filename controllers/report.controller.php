@@ -27,36 +27,36 @@ class ControllerReport {
 			WE CREATE EXCEL FILE
 			=============================================*/
 
-			// $name = $_GET["report"].'.xls';
+			$name = $_GET["report"].'.xls';
 
-			// header('Expires: 0');
-			// header('Cache-control: private');
-			// header("Content-type: application/vnd.ms-excel"); // Excel file
-			// header("Cache-Control: cache, must-revalidate"); 
-			// header('Content-Description: File Transfer');
-			// header('Last-Modified: '.date('D, d M Y H:i:s'));
-			// header("Pragma: public"); 
-			// header('Content-Disposition:; filename="'.$name.'"');
-			// header("Content-Transfer-Encoding: binary");
+			header('Expires: 0');
+			header('Cache-control: private');
+			header("Content-type: application/vnd.ms-excel"); // Excel file
+			header("Cache-Control: cache, must-revalidate"); 
+			header('Content-Description: File Transfer');
+			header('Last-Modified: '.date('D, d M Y H:i:s'));
+			header("Pragma: public"); 
+			header('Content-Disposition:; filename="'.$name.'"');
+			header("Content-Transfer-Encoding: binary");
 
-			// echo utf8_decode("<table border='0'> 
+			echo utf8_decode("<table border='0'> 
 
-			// 		<tr> 
-			// 		<td style='font-weight:bold; border:1px solid #eee;'>Nama</td> 
-			// 		<td style='font-weight:bold; border:1px solid #eee;'>Nilai</td>
-			// 		<td style='font-weight:bold; border:1px solid #eee;'>Satuan</td>
+					<tr> 
+					<td style='font-weight:bold; border:1px solid #eee;'>Nama</td> 
+					<td style='font-weight:bold; border:1px solid #eee;'>Nilai</td>
+					<td style='font-weight:bold; border:1px solid #eee;'>Satuan</td>
 	
-			// 		</tr>");
-			// foreach ($answer as $row => $item){
+					</tr>");
+			foreach ($answer as $row => $item){
 
-			// 	echo utf8_decode("<tr>
-			//  			<td style='border:1px solid #eee;'>".$item["keterangan"]."</td> 
-			//  			<td style='border:1px solid #eee;'>".$item["kuantitas"]."</td>
-			//  			<td style='border:1px solid #eee;'>".$item["satuan"]."</td>
-			//  			</tr>");
-			// }
+				echo utf8_decode("<tr>
+			 			<td style='border:1px solid #eee;'>".$item["keterangan"]."</td> 
+			 			<td style='border:1px solid #eee;'>".$item["kuantitas"]."</td>
+			 			<td style='border:1px solid #eee;'>".$item["satuan"]."</td>
+			 			</tr>");
+			}
 
-			// echo "</table>";
+			echo "</table>";
 
 		}
 
@@ -134,19 +134,41 @@ class ControllerReport {
 
 	public function ctrDownloadReportProvinsi2(){
 
+
 		$tableDataPariwisata = "data_pariwisata";
 		$tableRefKodeData = "ref_kode_data";
 		$tahun=getdate()['year'];
-		$bulan = getdate()['mon'];
+		$lokasi = $_GET["lokasi"];
+		$bulan = $_GET["bulan"];
+		// var_dump($lokasi);
+		// // var_dump($bulan);
+		// if(isset($_GET["report"])){
+		// 	if(isset($_GET["bulan"])){
+
+		// 		$bulan = $_GET["bulan"];
+		// 		$answer = ReportModel::mdlShowReportDataPariwisataProvinsiExport2($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan,$lokasi);
+		// 	}else{
+	
+		// 		$bulan = null;
+		// 		$answer = ReportModel::mdlShowReportDataPariwisataProvinsiExport2($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan,$lokasi);
+
+		// 	}
+		// }
+
+		$answer = ReportModel::mdlShowReportDataPariwisataProvinsiExport2($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan,$lokasi);
+		// $tableDataPariwisata = "data_pariwisata";
+		// $tableRefKodeData = "ref_kode_data";
+		// $tahun=getdate()['year'];
+		// $bulan = getdate()['mon'];
 		// $answer = ReportModel::mdlShowReportDataPariwisata($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan,$lokasi);
-		$answer = ReportModel::mdlShowReportDataPariwisataProvinsiExport2($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan);
+		// $answer = ReportModel::mdlShowReportDataPariwisataProvinsiExport2($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan);
 
 			
 
-			/*=============================================
-			WE CREATE EXCEL FILE
-			=============================================*/
-
+		// 	/*=============================================
+		// 	WE CREATE EXCEL FILE
+		// 	=============================================*/
+			// var_dump($answer);
 			$name = $tahun.'.xls';
 			header('Expires: 0');
 			header('Cache-control: private');

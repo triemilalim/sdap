@@ -98,19 +98,22 @@
                      <?php
 
                       // var_dump($_GET["newBulan"]);
-                      if(isset($_GET["newBulan"])){
+                    // if(isset($_GET["bulan"])){
 
-                    echo '<a href="views/modules/download-report-provinsi.php?report=report&initialDate='.$_GET["bulan"].'">';
-                         echo '<a href="views/modules/users">';
-                    }else{
-                     echo '<a href="views/modules/download-report-provinsi.php?report=report">';
-                    }         
+                    // echo '<a href="views/modules/download-report-provinsi.php?report=report&bulan='.$_GET["bulan"].'&lokasi='.$_GET["lokasi"].'">';
+                    //      // echo '<a href="views/modules/users">';
+                    // }else{
+                    //  echo '<a href="views/modules/download-report-provinsi.php?report=report">';
+                    // }       
 
-                  ?> 
                      
-                     <button class="btn btn-success" id="exportProvinisi" style="margin-top:5px">Export to Excel</button>
+                  ?> 
+                     <!-- <a href="views/modules/download-report-provinsi.php?report=report&bulan=2&lokasi=4"></a> -->
+                        <button class="btn btn-success" id="exportProvinisi" style="margin-top:5px"></a>Export to Excel</button>
+                      
+                     
 
-                    </a>
+                    
                 </div>
                 </div>
               </div>      

@@ -70,21 +70,19 @@ class ReportModel {
 		$stmt = null;	
 	}
 
-	static public function mdlShowReportDataPariwisataProvinsiExport2 ($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan){
-		
+	static public function mdlShowReportDataPariwisataProvinsiExport2 ($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan,$lokasi){
 		if($bulan!= null){
-			$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where bulan =$bulan and a".".kode_data = b".".kode_data and status_persetujuan= 1" );
-
+			$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where bulan =$bulan and tahun=$tahun and a".".kode_data = b".".kode_data and status_persetujuan= 1 and kode_lokasi=$lokasi" );
+			// var_dump($stmt);
 			$stmt -> execute();
 			return $stmt -> fetchAll();
 
 		} else {
-			$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where a".".kode_data = b".".kode_data and status_persetujuan= 1");
+			$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where a".".kode_data = b".".kode_data and tahun=$tahun and status_persetujuan= 1");
+			// var_dump($stmt);
 			$stmt -> execute();
 			return $stmt -> fetchAll();
 		}
-		 
-		
 
 		$stmt -> close();
 

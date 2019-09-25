@@ -11,9 +11,26 @@ class ApprovalsModel{
             FROM $tabelDataPariwisata
             INNER JOIN ref_kode_data
             ON data_pariwisata.kode_data=ref_kode_data.kode_data
-            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan
+            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan and data_pariwisata.kode_data LIKE 'B%'
             order by data_pariwisata.status_persetujuan");
             // var_dump($stmt);
+
+            $stmt -> execute();
+
+            return $stmt -> fetchAll();
+            $stmt -> close();
+    }
+
+     static public function MdlShowDataTahunan($tabelDataPariwisata, $tahun, $bulan, $lokasi){
+       
+        $stmt = Connection::connect()->
+
+            prepare("SELECT ref_kode_data.keterangan,data_pariwisata.kuantitas,data_pariwisata.id,data_pariwisata.status_persetujuan,ref_kode_data.satuan
+            FROM $tabelDataPariwisata
+            INNER JOIN ref_kode_data
+            ON data_pariwisata.kode_data=ref_kode_data.kode_data
+            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan and data_pariwisata.kode_data LIKE 'T%'
+            order by data_pariwisata.status_persetujuan");
 
             $stmt -> execute();
 

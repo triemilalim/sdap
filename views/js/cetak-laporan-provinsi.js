@@ -1,5 +1,9 @@
 $(".showDataProvinsi").on("click", function(e){
+  var filename=location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
+  console.log("filename", filename);
 
+  // document.getElementById("exportProvinisi").href= "Foldername/"+filename; /
+  $("#id").attr("href", "edit-jatuh-tempo");
 	var namaBulan = $('.namaBulan').find(":selected").val();
   console.log("namaBulan", namaBulan);
   var satuanKerja = $('.satuanKerja').find(":selected").val();
@@ -30,7 +34,7 @@ $(".showDataProvinsi").on("click", function(e){
 	 table.append(trHTML);
 
 	 $('#records_table').dataTable();
-   // window.history.pushState({"html":"pageTitle"},"", "index.php?route=cetak-laporan-provinsi&bulan="+namaBulan+"&lokasi="+satuanKerja);
+   window.history.pushState({"html":"pageTitle"},"", "index.php?route=cetak-laporan-provinsi&bulan="+namaBulan+"&lokasi="+satuanKerja);
   
    
    
@@ -44,7 +48,11 @@ $(".showDataProvinsi").on("click", function(e){
 // e.preventDefault();console.log("asd");
 })
 
-
+$("#exportProvinisi").on("click", function(){
+  var namaBulan = $('.namaBulan').find(":selected").val();
+  var satuanKerja = $('.satuanKerja').find(":selected").val();
+  window.location = "views/modules/download-report-provinsi.php?report=report&bulan="+namaBulan+"&lokasi="+satuanKerja;
+})
 // $("#exportProvinisi").on("click", function(){
 //   var namaBulan = $('.namaBulan').find(":selected").val();
 //   console.log("namaBulan", namaBulan);

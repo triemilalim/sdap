@@ -34,7 +34,7 @@ class DataPariwisataModel {
 		
 		if($jenisData=="B"){ //JENIS DATA BULANAN
 			if($item != null){
-				$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%'" );
+				$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%' order by a".".status_persetujuan" );
 		
 				$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 
@@ -43,7 +43,7 @@ class DataPariwisataModel {
 				return $stmt -> fetch();
 
 			} else {
-				$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%'" );
+				$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%' order by a".".status_persetujuan" );
 				// var_dump($stmt);
 				$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 				$stmt -> execute();
@@ -52,7 +52,7 @@ class DataPariwisataModel {
 			}
 		} else { //JENIS DATA TAHUNAN
 			if($item != null){
-			$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'T%'");
+			$stmt = Connection::connect()->prepare("SELECT id, a".".kode_data,keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where $item =:$item and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'T%' order by a".".status_persetujuan");
 	
 			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 
@@ -61,11 +61,11 @@ class DataPariwisataModel {
 			return $stmt -> fetch();
 
 		} else {
-			$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and a".".kode_data = b".".kode_data and kode_lokasi=$lokasi and bulan =$bulan and a.kode_data LIKE 'T%'");
+			$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , status_persetujuan ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and a".".kode_data = b".".kode_data and kode_lokasi=$lokasi and a.kode_data LIKE 'T%' order by a".".status_persetujuan");
 			
 			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 			$stmt -> execute();
-			// var_dump($stmt);
+			var_dump($stmt);
 			return $stmt -> fetchAll();
 		}
 		}

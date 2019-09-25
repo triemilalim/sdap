@@ -3,10 +3,20 @@
   <section class="content-header">
 
     <h1>
+      <?php 
+        $tahun=getdate()['year'];
+        $bulan =getdate()['mon']-1;
+
+        $kumpulanBulan="Januari Februari Maret April Mei Juni Juli Agustus September Oktober November Desember";
+
+        $arrayBulan=explode(" " , $kumpulanBulan);
+
+        $namaBulan = $arrayBulan[$bulan-1];
+      ?>
 
       Dashboard
-      
-      <small>Data Kepariwisataan Provinsi Riau</small>
+        
+      <small>Data Kepariwisataan Provinsi Riau Periode Bulan <?php echo $namaBulan. ' Tahun '. $tahun ?> </small>
 
     </h1>
 
