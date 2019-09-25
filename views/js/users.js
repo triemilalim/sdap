@@ -229,11 +229,11 @@ $(document).on("click", ".btnDeleteUser", function(){
 
 	swal({
 		title: 'Apakah Kamu Yakin Akan Menghapus User Tersebut ?',
-		text: "JIka Kamu Tidak Yakin Maka Kamu Bisa Membatalkannya",
+		text: "Klik batal untuk kembali.",
 		type: 'warning',
 		showCancelButton: true,
-		confirmButtonColor: '#3085d6',
-		cancelButtonColor: '#d33',
+		confirmButtonColor: '#d33',
+		cancelButtonColor: '#3085d6',
 		cancelButtonText: 'Batal',
 		confirmButtonText: 'Ya, Hapus user!'
 	}).then(function(result){

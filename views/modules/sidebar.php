@@ -26,7 +26,7 @@
 
 						<i class="fa fa-clock-o"></i>
 
-						<span>Edit Tanggal Tutup Periode</span>
+						<span>Edit Tanggal Periode</span>
 
 					</a>
 

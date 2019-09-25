@@ -5,10 +5,10 @@ require_once "connection.php";
 class DataPariwisataModel {
  // kode_data , kode_lokasi , kuantitas , tahun , bulan , approved
 	static public function mdlCreateDataPariwisata ($table, $data){
-		var_dump($data);
+		// var_dump($data);
 
 		$stmt = Connection::connect()->prepare("INSERT INTO $table(kode_data, kode_lokasi, kuantitas, tahun, bulan, approved) VALUES (:kode_data, :kode_lokasi, :kuantitas, :tahun, :bulan, :approved)");
-		var_dump($stmt);
+		// var_dump($stmt);
 
 		$stmt -> bindParam(":kode_data", $data["kode_data"], PDO::PARAM_STR);
 		$stmt -> bindParam(":kode_lokasi", $data["kode_lokasi"], PDO::PARAM_INT);
@@ -44,7 +44,7 @@ class DataPariwisataModel {
 
 			} else {
 				$stmt = Connection::connect()->prepare("SELECT id, keterangan ,kuantitas , approved ,satuan from $tableDataPariwisata a ,  $tableRefKodeData b where tahun =$tahun and bulan =$bulan and kode_lokasi=$lokasi and a".".kode_data = b".".kode_data and a.kode_data LIKE 'B%'" );
-				var_dump($stmt);
+				// var_dump($stmt);
 				$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 				$stmt -> execute();
 
@@ -65,7 +65,7 @@ class DataPariwisataModel {
 			
 			$stmt -> bindParam(":".$item, $value, PDO::PARAM_STR);
 			$stmt -> execute();
-			var_dump($stmt);
+			// var_dump($stmt);
 			return $stmt -> fetchAll();
 		}
 		}
@@ -174,7 +174,7 @@ class DataPariwisataModel {
 		$stmt -> bindParam(":kode_data", $data["kode_data"], PDO::PARAM_STR);
 		// $stmt -> bindParam(":kode_lokasi", $data["kode_lokasi"], PDO::PARAM_STR);
 		$stmt -> bindParam(":kuantitas", $data["kuantitas"], PDO::PARAM_STR);
-		var_dump($stmt);
+		// var_dump($stmt);
 		if ($stmt->execute()) {
 
 			return 'ok';

@@ -449,7 +449,7 @@ class ControllerUsers{
 
 				swal({
 					  type: "success",
-					  title: "Berhasil Mengahapus User",
+					  title: "Berhasil Menghapus User",
 					  showConfirmButton: true,
 					  confirmButtonText: "Close"
 
@@ -469,7 +469,7 @@ class ControllerUsers{
 
 				swal({
 					  type: "error",
-					  title: "Error TERUSSSS",
+					  title: "Terjadi Kesalahan",
 					  showConfirmButton: true,
 					  confirmButtonText: "Close"
 

@@ -21,12 +21,6 @@
     <div class="box">
       <div class="box-header with-border">
         <!--   <div class="box box-danger"> -->
-          <div class="box-header with-border">
-            <div class="box-tools pull-right">
-              <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-              <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-            </div>
-          </div>
           <!-- /.box-header -->
           <div class="box-body">
             <div class="row">
@@ -35,9 +29,6 @@
                   <label>Pilih Tahun</label>
                   <select class="form-control tahun" name="tahun" style="width: 100%;" tabindex="-1" aria-hidden="true">
                     <option value="">Pilih Tahun</option> 
-                    <option value="2015">2015</option> 
-                   <option value="2016">2016</option>  
-                   <option value="2017">2017</option> 
                    <option value="2018">2018</option> 
                    <option value="2019">2019</option> 
                 </select>

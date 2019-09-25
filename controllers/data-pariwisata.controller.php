@@ -15,7 +15,7 @@
 				$answer = DataPariwisataModel::mdlCreateDataPariwisata($table, $data);
 				// var_dump($answer);
 				$x = substr($answer,0,1);
-				var_dump($x);	
+				// var_dump($x);	
 				if($x == 'B'){
 					if($answer == $data['kode_data']){
 
@@ -127,10 +127,10 @@
 
 			$table ="data_pariwisata";
 			$data = $_GET["idDataPariwisata"];
-			var_dump($data);
+			// var_dump($data);
 
 			$answer = DataPariwisataModel::mdlDeleteDataPariwisata($table, $data);
-			var_dump($answer);
+			// var_dump($answer);
 
 			if($answer == "ok"){
 
@@ -177,10 +177,10 @@
 
 			$table ="data_pariwisata";
 			$data = $_GET["idDataPariwisata"];
-			var_dump($data);
+			// var_dump($data);
 
 			$answer = DataPariwisataModel::mdlDeleteDataPariwisata($table, $data);
-			var_dump($answer);
+			// var_dump($answer);
 
 			if($answer == "ok"){
 
@@ -231,11 +231,11 @@
 						  'id' => $_POST["EditIdDataPariwisata"],
 						  'satuan' => $_POST["satuan"]);
 
-			var_dump($data);
+			// var_dump($data);
 
 			$answer = DataPariwisataModel::mdlEditDataPariwisata($table, $data);
 
-			var_dump($answer);
+			// var_dump($answer);
 			if ($answer == 'ok') {
 				
 				echo '<script>
@@ -291,11 +291,11 @@
 						  'id' => $_POST["EditIdDataPariwisata"],
 						  'satuan' => $_POST["satuan"]);
 
-			var_dump($data);
+			// var_dump($data);
 
 			$answer = DataPariwisataModel::mdlEditDataPariwisata($table, $data);
 
-			var_dump($answer);
+			// var_dump($answer);
 			if ($answer == 'ok') {
 				
 				echo '<script>

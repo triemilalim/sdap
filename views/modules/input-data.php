@@ -139,22 +139,44 @@
                       echo '<td><button class="btn btn-danger btnPersetujuan btn-xs" statusApproved="2" idDataPariwisata="'.$value["id"].'">Ditolak</button></td>';
                     }
 
-                     echo '
+                    if($value["approved"] == 1){
+                      echo '
+                 
+                 
 
-                    <td>
+                      <td>
 
                       <div class="btn-group">
-                          
-                        <button class="btn btn-warning btnEditDataPariwisata" idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["approved"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
-                        </button>
-                        
-                        <button class="btn btn-danger btnDeleteDataPariwisata" idDataPariwisata="'.$value["id"].'"><i class="fa fa-trash"></i>
-                        </button>                                                                       
+
+                      <button class="btn btn-warning btnEditDataPariwisata" disabled idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["approved"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
+                      </button>
+
+                      <button class="btn btn-danger btnDeleteDataPariwisata" disabled idDataPariwisata="'.$value["id"].'"><i class="fa fa-trash"></i>
+                      </button>                                                                       
                       </div>  
 
-                    </td>
+                      </td>';
+                    } else{
+                       echo '
+                 
+                 
 
-                  </tr>';
+                      <td>
+
+                      <div class="btn-group">
+
+                      <button class="btn btn-warning btnEditDataPariwisata"  idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["approved"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
+                      </button>
+
+                      <button class="btn btn-danger btnDeleteDataPariwisata" idDataPariwisata="'.$value["id"].'"><i class="fa fa-trash"></i>
+                      </button>                                                                       
+                      </div>  
+
+                      </td>';
+
+                    }
+                 echo '
+               </tr>';
               }
           ?>
         </tbody>

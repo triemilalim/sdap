@@ -11,7 +11,8 @@ class ApprovalsModel{
             FROM $tabelDataPariwisata
             INNER JOIN ref_kode_data
             ON data_pariwisata.kode_data=ref_kode_data.kode_data
-            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan");
+            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan
+            order by data_pariwisata.approved");
             // var_dump($stmt);
 
             $stmt -> execute();

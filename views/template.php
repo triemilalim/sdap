@@ -134,6 +134,7 @@
             $_GET["route"] == 'approval'||
             $_GET["route"] == 'cetak-laporan'||
             $_GET["route"] == 'cetak-laporan-provinsi'||
+            $_GET["route"] == 'edit-jatuh-tempo'||
             $_GET["route"] == 'tampil-data-budaya'||
             $_GET["route"] == 'tampil-data-bahari'||
             $_GET["route"] == 'tampil-data-cagar-alam'||
@@ -181,6 +182,7 @@
 <script src="views/js/approval.js"></script>
 <script src="views/js/cetak-laporan.js"></script>
 <script src="views/js/cetak-laporan-provinsi.js"></script>
+<script src="views/js/edit-jatuh-tempo.js"></script>
 
 
 
