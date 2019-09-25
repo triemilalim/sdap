@@ -45,7 +45,7 @@ class UsersModel{
 	static public function MdlShowUsersLokasi($tableRefKodeLokasi , $item, $value){
 
 		$stmt = Connection::connect()->
-		prepare("SELECT * FROM $tableRefKodeLokasi");
+		prepare("SELECT * FROM $tableRefKodeLokasi ORDER by kode_lokasi DESC");
 
 		$stmt -> execute();
 

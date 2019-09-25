@@ -255,7 +255,7 @@ $(document).on("click", "#btnAddUser", function(){
 	console.log("tanggalSekarang", tanggalSekarang);
 
 
-	var bulan = $('#btnAddUser').val();// sebagai paramete query untuk mendapatkan deadline per bulannya berapa 
+	var bulan = $('#btnAddUser').val();
 	var data = new FormData();
 	data.append("validateDate", bulan);
 

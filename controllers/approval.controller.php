@@ -19,7 +19,7 @@ class ControllerApproval{
       static public function ctrShowDataTahunan(){
         
         $tabelDataPariwisata = "data_pariwisata";
-        $tahun = getdate()['year'];
+        $tahun = getdate()['year']-1;
         $bulan = 1;
         $lokasi = $_SESSION["kode_lokasi"];
         

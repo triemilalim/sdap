@@ -1,14 +1,7 @@
 $(".showDataProvinsi").on("click", function(e){
-  var filename=location.pathname.substring(location.pathname.lastIndexOf("/") + 1);
-  console.log("filename", filename);
 
-  // document.getElementById("exportProvinisi").href= "Foldername/"+filename; /
-  $("#id").attr("href", "edit-jatuh-tempo");
 	var namaBulan = $('.namaBulan').find(":selected").val();
-  console.log("namaBulan", namaBulan);
   var satuanKerja = $('.satuanKerja').find(":selected").val();
-  console.log("satuanKerja", satuanKerja);
-  // window.location = "index.php?route=cetak-laporan-provinsi&bulan="+namaBulan+"&satuanKerja="+satuanKerja;
 	var datum = new FormData();
 	datum.append("valueBulan", namaBulan);
 	datum.append("valueSatker", satuanKerja);
@@ -17,7 +10,7 @@ $(".showDataProvinsi").on("click", function(e){
 		url: "ajax/cetak-laporan-provinsi.ajax.php",
 		method: "POST",
       data: datum,
-      // cache: false,
+      cache: false,
      	contentType: false,
      	processData: false,
      	dataType:"json",
@@ -34,7 +27,7 @@ $(".showDataProvinsi").on("click", function(e){
 	 table.append(trHTML);
 
 	 $('#records_table').dataTable();
-   window.history.pushState({"html":"pageTitle"},"", "index.php?route=cetak-laporan-provinsi&bulan="+namaBulan+"&lokasi="+satuanKerja);
+   // window.history.pushState({"html":"pageTitle"},"", "index.php?route=cetak-laporan-provinsi&bulan="+namaBulan+"&lokasi="+satuanKerja);
   
    
    
@@ -50,35 +43,17 @@ $(".showDataProvinsi").on("click", function(e){
 
 $("#exportProvinisi").on("click", function(){
   var namaBulan = $('.namaBulan').find(":selected").val();
+  console.log("namaBulan", namaBulan);
   var satuanKerja = $('.satuanKerja').find(":selected").val();
-  window.location = "views/modules/download-report-provinsi.php?report=report&bulan="+namaBulan+"&lokasi="+satuanKerja;
+  console.log("satuanKerja", satuanKerja);
+  // if(namaBulan != ""){
+  //     console.log("tidak kosong");
+      window.location = "views/modules/download-report-provinsi.php?report=report&bulan="+namaBulan+"&lokasi="+satuanKerja;
+  // }
+
+  // else{
+  //     console.log("kosong");
+  //     window.location = "views/modules/download-report-provinsi.php?report=report";
+  // }
+  
 })
-// $("#exportProvinisi").on("click", function(){
-//   var namaBulan = $('.namaBulan').find(":selected").val();
-//   console.log("namaBulan", namaBulan);
-//   var satuanKerja = $('.satuanKerja').find(":selected").val();
-//   console.log("satuanKerja", satuanKerja);
-
-//   var datum = new FormData();
-//   datum.append("valueBulanExport", namaBulan);
-//   datum.append("valueSatkerExport", satuanKerja);
-//   $.ajax({
-
-//     url: "ajax/cetak-laporan-provinsi.ajax.php",
-//     method: "POST",
-//       data: datum,
-//       cache: false,
-//       contentType: false,
-//       processData: false,
-//       dataType:"json",
-//       success: function(answer){
-//         console.log("asd");
-//         console.log("answer", answer);
-//         window.location = "users";
-//         // window.location = "views/modules/download-report.php?report=report&initialDate=1&lokasi=1";
-
-//       }
-
-// })
-
-// })

@@ -25,7 +25,7 @@
       <div class="box-header with-border">
 
         <?php
-        $tahun=getdate()['year'];
+        $tahun=getdate()['year']-1;
         $bulan = 1;   
         $bulanValidasi = getdate()['mon'];
         // $monthName = date("F", mktime(0, 0, 0, $bulan, 10));  

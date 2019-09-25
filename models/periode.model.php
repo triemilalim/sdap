@@ -21,7 +21,7 @@ class PeriodeModel{
 		$stmt -> bindParam(":".$item2, $value2, PDO::PARAM_STR);
 		
 		$stmt -> execute();
-		// var_dump($stmt);
+		// var_dump($stmt);die;
 		return $stmt -> fetch();
 		
 		$stmt -> close();

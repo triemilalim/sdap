@@ -37,7 +37,7 @@
                   // var_dump($tanggal);
                   // var_dump($bulan);
             ?>
-         <button class="btn btn-primary" id="btnAddUser" <?php echo 'value='.$bulan;?> data-keyboard="false">  
+         <button class="btn btn-primary" data-toggle="modal" data-target="#addUser">
 
           Tambah user
 
