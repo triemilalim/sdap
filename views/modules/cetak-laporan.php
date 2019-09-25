@@ -130,9 +130,9 @@
                     <td>'.$value["kuantitas"].'</td>
                     <td>'.$value["satuan"].'</td>';
 
-                    if($value["approved"] == 1){
+                    if($value["status_persetujuan"] == 1){
                       echo '<td><button class="btn btn-success btnPersetujuan btn-xs" statusApproved="0" idDataPariwisata="'.$value["id"].'"> Disetujui</button></td>';
-                    }elseif ($value["approved"] == 0){
+                    }elseif ($value["status_persetujuan"] == 0){
                       echo '<td><button class="btn btn-warning btnPersetujuan btn-xs" statusApproved="1" idDataPariwisata="'.$value["id"].'">Belum Disetujui</button></td>';
                     } else {
                       echo '<td><button class="btn btn-danger btnPersetujuan btn-xs" statusApproved="2" idDataPariwisata="'.$value["id"].'">Ditolak</button></td>';

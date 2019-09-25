@@ -100,14 +100,14 @@
                     <td>'.$value["kuantitas"].'</td>
                     <td>'.$value["satuan"].'</td>';
 
-                    if($value["approved"] == 1){
+                    if($value["status_persetujuan"] == 1){
                       echo '<td><button class="btn btn-success btnPersetujuan btn-xs" statusApproved="0" idDataPariwisata="'.$value["id"].'"> Disetujui</button></td>';
-                    }elseif ($value["approved"] == 0){
+                    }elseif ($value["status_persetujuan"] == 0){
                       echo '<td><button class="btn btn-warning btnPersetujuan btn-xs" statusApproved="1" idDataPariwisata="'.$value["id"].'">Belum Disetujui</button></td>';
                     } else {
                       echo '<td><button class="btn btn-danger btnPersetujuan btn-xs" statusApproved="2" idDataPariwisata="'.$value["id"].'">Ditolak</button></td>';
                     }
-                    if($value["approved"] == 1){
+                    if($value["status_persetujuan"] == 1){
                          echo '
                     
                     
@@ -116,7 +116,7 @@
 
                          <div class="btn-group">
 
-                         <button class="btn btn-warning btnEditDataPariwisata" disabled idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["approved"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
+                         <button class="btn btn-warning btnEditDataPariwisata" disabled idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["status_persetujuan"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
                          </button>
 
                          <button class="btn btn-danger btnDeleteDataPariwisataBulanan" disabled idDataPariwisata="'.$value["id"].'"><i class="fa fa-trash"></i>
@@ -133,7 +133,7 @@
 
                          <div class="btn-group">
 
-                         <button class="btn btn-warning btnEditDataPariwisata"  idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["approved"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
+                         <button class="btn btn-warning btnEditDataPariwisata"  idDataPariwisata="'.$value["id"].'" statusApproved="'.$value["status_persetujuan"].'" data-toggle="modal"><i class="fa fa-pencil"></i>
                          </button>
 
                          <button class="btn btn-danger btnDeleteDataPariwisataBulanan" idDataPariwisata="'.$value["id"].'"><i class="fa fa-trash"></i>

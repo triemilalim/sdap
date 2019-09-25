@@ -29,7 +29,7 @@ class AjaxDataPariwisata{
 	public function ajaxPersetujuanData(){
 
 		$table = "data_pariwisata";
-		$item1 = "approved";
+		$item1 = "status_persetujuan";
 		$value1 = $this->statusApproved;
 
 		$item2 = "id";

@@ -41,7 +41,7 @@ class cetakDataProvinsiTable{
 						"'.$answer[$i]["keterangan"].'",
 						"'.$answer[$i]["kuantitas"].'",
 						"'.$answer[$i]["satuan"].'",
-						"'.$answer[$i]["approved"].'"
+						"'.$answer[$i]["status_persetujuan"].'"
 					],';
 				}
 

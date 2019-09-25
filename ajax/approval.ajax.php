@@ -14,7 +14,7 @@ class AjaxAprroval{
 	public function ajaxApproveData(){
 
         $table = "data_pariwisata";
-		$item1 = "approved";
+		$item1 = "status_persetujuan";
 		$value1 = $this->approveData;
 
 		$item2 = "id";

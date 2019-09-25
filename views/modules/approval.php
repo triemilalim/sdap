@@ -64,11 +64,11 @@
                 <td>'.$value["kuantitas"].'</td>
                 <td>'.$value["satuan"].'</td>';
 
-                if($value["approved"] == 0){
+                if($value["status_persetujuan"] == 0){
                   echo '<td>
                           <button class="btn btn-warning btn-xs" id="'.$value["id"].'">Belum Disetujui</button>
                       </td>';
-                } elseif ($value["approved"] == 1) {
+                } elseif ($value["status_persetujuan"] == 1) {
                   echo '<td>
                           <button class="btn btn-success btn-xs" id="'.$value["id"].'" statusApprove="">Disetujui</button>
                       </td>';
@@ -81,7 +81,7 @@
                 echo '
                 <td>
                   <div class="btn-group">';
-                  if($value["approved"] == 1){
+                  if($value["status_persetujuan"] == 1){
                     echo '<button class="btn btn-success btnApprove" dataId="'.$value["id"].'" statusApprove="0"><i class="fa fa-check"></i>
                     </button>';
                   } else{

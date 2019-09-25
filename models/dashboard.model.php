@@ -14,7 +14,7 @@ class ModelDashboard{
         }
 
     $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) as total FROM $table 
-            where kode_data = 'T11'  and approved = 1 and tahun = $year $kode_lokasi");
+            where kode_data = 'T11'  and status_persetujuan = 1 and tahun = $year $kode_lokasi");
 
         // var_dump($stmt);die;
     $stmt -> execute();
@@ -37,7 +37,7 @@ class ModelDashboard{
         }
 
         $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) as total FROM $table 
-                where kode_data = 'T12' and approved = 1 and tahun = $year $kode_lokasi");
+                where kode_data = 'T12' and status_persetujuan = 1 and tahun = $year $kode_lokasi");
     
         $stmt -> execute();
     
@@ -59,7 +59,7 @@ class ModelDashboard{
         }
 
         $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) as total FROM $table 
-                where kode_data = 'T13' and approved = 1 and tahun = $year $kode_lokasi");
+                where kode_data = 'T13' and status_persetujuan = 1 and tahun = $year $kode_lokasi");
     
         $stmt -> execute();
     
@@ -81,7 +81,7 @@ class ModelDashboard{
         }
 
         $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) as total FROM $table 
-                where kode_data = 'T14' and approved = 1 and tahun = $year $kode_lokasi");
+                where kode_data = 'T14' and status_persetujuan = 1 and tahun = $year $kode_lokasi");
     
         $stmt -> execute();
     
@@ -103,7 +103,7 @@ class ModelDashboard{
         }
 
         $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) as total FROM $table 
-                where kode_data = 'T15' and approved = 1 and tahun = $year $kode_lokasi");
+                where kode_data = 'T15' and status_persetujuan = 1 and tahun = $year $kode_lokasi");
     
         $stmt -> execute();
     
@@ -136,13 +136,13 @@ class ModelDashboard{
 			if($finalDatePlusOne == $actualDatePlusOne){
 
                 $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data IN ('B11', 'B21', 'B31', 'B41', 'B51')  
-                        and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
+                        and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
                         GROUP BY tahun, bulan ORDER BY id");
 
 			}else{
 
                 $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data IN ('B11', 'B21', 'B31', 'B41', 'B51')  
-                        and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
+                        and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
                         GROUP BY tahun, bulan ORDER BY id");
 
 			}
@@ -176,13 +176,13 @@ class ModelDashboard{
         if($finalDatePlusOne == $actualDatePlusOne){
 
             $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data IN ('B12', 'B22', 'B32', 'B42', 'B52')  
-                    and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
+                    and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
                     GROUP BY tahun, bulan ORDER BY id");
 
         }else{
 
             $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data IN ('B12', 'B22', 'B32', 'B42', 'B52')  
-                    and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
+                    and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
                     GROUP BY tahun, bulan ORDER BY id");
 
         }
@@ -217,13 +217,13 @@ class ModelDashboard{
         if($finalDatePlusOne == $actualDatePlusOne){
 
         $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data = 'B61' 
-                and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
+                and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
                 GROUP BY tahun, bulan ORDER BY id");
 
                 }else{
 
         $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data = 'B61'
-                and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
+                and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
                 GROUP BY tahun, bulan ORDER BY id");
 
                 }
@@ -257,13 +257,13 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
         if($finalDatePlusOne == $actualDatePlusOne){
 
         $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data = 'B62'
-        and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
+        and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
         GROUP BY tahun, bulan ORDER BY id");
 
         }else{
 
         $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data = 'B62'  
-        and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
+        and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
         GROUP BY tahun, bulan ORDER BY id");
 
         }
@@ -298,13 +298,13 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
                 if($finalDatePlusOne == $actualDatePlusOne){
 
                 $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data = 'B71' 
-                        and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
+                        and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
                         GROUP BY tahun, bulan ORDER BY id");
 
                 }else{
 
                 $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data = 'B71'
-                        and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
+                        and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
                         GROUP BY tahun, bulan ORDER BY id");
 
                 }
@@ -338,13 +338,13 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
                 if($finalDatePlusOne == $actualDatePlusOne){
 
                 $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data = 'B72'
-                and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
+                and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDatePlusOne'  $kode_lokasi
                 GROUP BY tahun, bulan ORDER BY id");
 
                 }else{
 
                 $stmt = Connection::connect()->prepare("SELECT id, sum(kuantitas) `kuantitas`, concat(tahun,'-', bulan) `range`  FROM $table WHERE kode_data = 'B72'  
-                and approved = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
+                and status_persetujuan = 1 AND concat(tahun,'-', bulan) BETWEEN '$initialDate' AND '$finalDate'  $kode_lokasi
                 GROUP BY tahun, bulan ORDER BY id");
 
                 }
@@ -372,7 +372,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
 
         $stmt = Connection::connect()->prepare("SELECT a.kode_data, b.keterangan, sum(a.kuantitas) `kuantitas` 
                                         FROM $table a JOIN ref_kode_data b ON a.kode_data = b.kode_data 
-                                        WHERE a.`kode_data` like 'T2_' and approved = 1 and a.tahun = '2019'  $kode_lokasi
+                                        WHERE a.`kode_data` like 'T2_' and status_persetujuan = 1 and a.tahun = '2019'  $kode_lokasi
                                         GROUP by a.kode_data ORDER by a.kuantitas DESC");
 
         $stmt -> execute();
@@ -393,7 +393,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
             $kode_lokasi = "and kode_lokasi = ".$_SESSION["kode_lokasi"];
         }
 
-        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T2_' and approved = 1 and tahun = '2019' $kode_lokasi");
+        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T2_' and status_persetujuan = 1 and tahun = '2019' $kode_lokasi");
 
         $stmt -> execute();
 
@@ -414,7 +414,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
 
         $stmt = Connection::connect()->prepare("SELECT a.kode_data, b.keterangan, sum(a.kuantitas) `kuantitas` 
                                         FROM $table a JOIN ref_kode_data b ON a.kode_data = b.kode_data 
-                                        WHERE a.`kode_data` like 'T3_' and approved = 1 and a.tahun = '2019'  $kode_lokasi
+                                        WHERE a.`kode_data` like 'T3_' and status_persetujuan = 1 and a.tahun = '2019'  $kode_lokasi
                                         GROUP by a.kode_data ORDER by a.kuantitas DESC");
 
         $stmt -> execute();
@@ -435,7 +435,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
             $kode_lokasi = "and kode_lokasi = ".$_SESSION["kode_lokasi"];
         }
 
-        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T3_' and approved = 1 and tahun = '2019' $kode_lokasi");
+        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T3_' and status_persetujuan = 1 and tahun = '2019' $kode_lokasi");
 
         $stmt -> execute();
 
@@ -456,7 +456,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
 
         $stmt = Connection::connect()->prepare("SELECT a.kode_data, b.keterangan, sum(a.kuantitas) `kuantitas` 
                                         FROM $table a JOIN ref_kode_data b ON a.kode_data = b.kode_data 
-                                        WHERE a.`kode_data` like 'T4_' and approved = 1 and a.tahun = '2019'  $kode_lokasi
+                                        WHERE a.`kode_data` like 'T4_' and status_persetujuan = 1 and a.tahun = '2019'  $kode_lokasi
                                         GROUP by a.kode_data ORDER by a.kuantitas DESC");
 
         $stmt -> execute();
@@ -477,7 +477,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
             $kode_lokasi = "and kode_lokasi = ".$_SESSION["kode_lokasi"];
         }
 
-        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T4_' and approved = 1 and tahun = '2019' $kode_lokasi");
+        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T4_' and status_persetujuan = 1 and tahun = '2019' $kode_lokasi");
 
         $stmt -> execute();
 
@@ -498,7 +498,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
 
         $stmt = Connection::connect()->prepare("SELECT a.kode_data, b.keterangan, sum(a.kuantitas) `kuantitas` 
                                         FROM $table a JOIN ref_kode_data b ON a.kode_data = b.kode_data 
-                                        WHERE a.`kode_data` like 'T5_' and approved = 1 and a.tahun = '2019'  $kode_lokasi
+                                        WHERE a.`kode_data` like 'T5_' and status_persetujuan = 1 and a.tahun = '2019'  $kode_lokasi
                                         GROUP by a.kode_data ORDER by a.kuantitas DESC");
 
         $stmt -> execute();
@@ -519,7 +519,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
             $kode_lokasi = "and kode_lokasi = ".$_SESSION["kode_lokasi"];
         }
 
-        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T5_' and approved = 1 and tahun = '2019' $kode_lokasi");
+        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T5_' and status_persetujuan = 1 and tahun = '2019' $kode_lokasi");
 
         $stmt -> execute();
 
@@ -540,7 +540,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
 
         $stmt = Connection::connect()->prepare("SELECT a.kode_data, b.keterangan, sum(a.kuantitas) `kuantitas` 
                                         FROM $table a JOIN ref_kode_data b ON a.kode_data = b.kode_data 
-                                        WHERE a.`kode_data` like 'T6_' and approved = 1 and a.tahun = '2019'  $kode_lokasi
+                                        WHERE a.`kode_data` like 'T6_' and status_persetujuan = 1 and a.tahun = '2019'  $kode_lokasi
                                         GROUP by a.kode_data ORDER by a.kuantitas DESC");
 
         $stmt -> execute();
@@ -561,7 +561,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
             $kode_lokasi = "and kode_lokasi = ".$_SESSION["kode_lokasi"];
         }
 
-        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T6_' and approved = 1 and tahun = '2019' $kode_lokasi");
+        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T6_' and status_persetujuan = 1 and tahun = '2019' $kode_lokasi");
 
         $stmt -> execute();
 
@@ -582,7 +582,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
 
         $stmt = Connection::connect()->prepare("SELECT a.kode_data, b.keterangan, sum(a.kuantitas) `kuantitas` 
                                         FROM $table a JOIN ref_kode_data b ON a.kode_data = b.kode_data 
-                                        WHERE a.`kode_data` like 'T7_' and approved = 1 and a.tahun = '2019'  $kode_lokasi
+                                        WHERE a.`kode_data` like 'T7_' and status_persetujuan = 1 and a.tahun = '2019'  $kode_lokasi
                                         GROUP by a.kode_data ORDER by a.kuantitas DESC");
 
         $stmt -> execute();
@@ -603,7 +603,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
             $kode_lokasi = "and kode_lokasi = ".$_SESSION["kode_lokasi"];
         }
 
-        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T7_' and approved = 1 and tahun = '2019' $kode_lokasi");
+        $stmt = Connection::connect()->prepare("SELECT SUM(kuantitas) total from $table where `kode_data` like 'T7_' and status_persetujuan = 1 and tahun = '2019' $kode_lokasi");
 
         $stmt -> execute();
 
@@ -622,7 +622,7 @@ static public function mdlDashboardLamaKunjunganMancanegara($table, $initialDate
         from $tableDataPariwisata a, $tableRefKodeData b, $tableRefKodeLokasi c 
         
         where a.kode_data = b.kode_data and a.kode_lokasi = c.kode_lokasi 
-        and a.approved = 1
+        and a.status_persetujuan = 1
         and a.tahun = $year
         and a.kode_data = '".$kode_data."'
         

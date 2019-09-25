@@ -9,7 +9,7 @@
 				'kuantitas' => $_POST["addKuantitas"],
 				'tahun' => $_POST["addTahun"],
 				'bulan' => $_POST["addBulan"],
-				'approved' => 0);
+				'status_persetujuan' => 0);
 			$table = 'data_pariwisata';
 			
 				$answer = DataPariwisataModel::mdlCreateDataPariwisata($table, $data);
@@ -223,7 +223,7 @@
 
 	static public function ctrEditDataPariwisata(){
 		if (isset($_POST["editJenisData"])) {
-			// id`, `kode_data`, `kode_lokasi`, `kuantitas`, `tahun`, `bulan`, `approved
+			// id`, `kode_data`, `kode_lokasi`, `kuantitas`, `tahun`, `bulan`, `status_persetujuan
 			$table = 'data_pariwisata';
 
 			$data = array('kode_data' => $_POST["editNamaData"],
@@ -283,7 +283,7 @@
 
 	static public function ctrEditDataPariwisataBulanan(){
 		if (isset($_POST["editJenisData"])) {
-			// id`, `kode_data`, `kode_lokasi`, `kuantitas`, `tahun`, `bulan`, `approved
+			// id`, `kode_data`, `kode_lokasi`, `kuantitas`, `tahun`, `bulan`, `status_persetujuan
 			$table = 'data_pariwisata';
 
 			$data = array('kode_data' => $_POST["editNamaData"],
