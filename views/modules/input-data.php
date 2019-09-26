@@ -27,7 +27,7 @@
         <?php
         $tahun=getdate()['year']-1;
         $bulan = 1;   
-        $bulanValidasi = getdate()['mon'];
+        $bulanValidasi =1;
         // $monthName = date("F", mktime(0, 0, 0, $bulan, 10));  
         // var_dump($monthName);
         // $angka=1;

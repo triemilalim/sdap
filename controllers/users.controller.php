@@ -33,12 +33,20 @@ class ControllerUsers{
 						$_SESSION["status_aktif"] = $answer["status_aktif"];
 						$_SESSION["kode_lokasi"] = $answer["kode_lokasi"];
 
-
-					echo '<script>
+					if($_SESSION["role"] != 'admin'){
+						echo '<script>
 
 						window.location = "home";
 
 					</script>';
+					}else {
+						echo '<script>
+
+						window.location = "users";
+
+					</script>';
+					}
+					
 
 
 					}else{
@@ -153,7 +161,7 @@ class ControllerUsers{
 						
 						swal({
 							type: "success",
-							title: "¡User added succesfully!",
+							title: "User Berhasil Ditambahkan!",
 							showConfirmButton: true,
 							confirmButtonText: "Close"
 
@@ -174,7 +182,7 @@ class ControllerUsers{
 						
 						swal({
 							type: "error",
-							title: "¡User added error!",
+							title: "Gagal Tambah User!",
 							showConfirmButton: true,
 							confirmButtonText: "Close"
 

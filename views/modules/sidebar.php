@@ -4,6 +4,10 @@
 		
 		<ul class="sidebar-menu">
 			
+			<?php 
+
+			if ($_SESSION["role"] != "admin"){
+			echo '
 			<li class="active">
 
 				<a href="home">
@@ -14,9 +18,9 @@
 
 				</a>
 
-			</li>
+			</li>';
+			} 
 			
-			<?php 
 
 			if ($_SESSION["role"] == "admin"){
 				echo '			

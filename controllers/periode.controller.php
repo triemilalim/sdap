@@ -17,7 +17,14 @@ class ControllerPeriode{
 		return $answer;
 	}
 
+	static public function MdlShowPeriodeTahunan($item, $value,$item2 , $value2){
+		$tahun = getdate()['year']-1;
+		$table = "periode";
 
+		$answer = PeriodeModel::MdlShowPeriodeTahunan($table, $item, $value,$item2 , $value2,$tahun);
+
+		return $answer;
+	}
 
 
 }

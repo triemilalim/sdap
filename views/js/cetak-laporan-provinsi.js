@@ -1,6 +1,7 @@
 $(".showDataProvinsi").on("click", function(e){
 
 	var namaBulan = $('.namaBulan').find(":selected").val();
+  console.log("namaBulan", namaBulan);
   var satuanKerja = $('.satuanKerja').find(":selected").val();
 	var datum = new FormData();
 	datum.append("valueBulan", namaBulan);

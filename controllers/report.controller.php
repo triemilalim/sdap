@@ -62,55 +62,7 @@ class ControllerReport {
 
 	}
 
-	// public function ctrDownloadReportProvinsi($bulan, $valueBulan, $satker,$valueSatker){
-
-	// 	$tableDataPariwisata = "data_pariwisata";
-	// 	$tableRefKodeData = "ref_kode_data";
-	// 	$tahun=getdate()['year'];
-	// 	$answer = ReportModel::mdlShowReportDataPariwisataProvinsiExport($tableDataPariwisata,$tableRefKodeData,$tahun,$bulan, $valueBulan, $satker,$valueSatker);
-
-			
-
-	// 		/*=============================================
-	// 		WE CREATE EXCEL FILE
-	// 		=============================================*/
-
-	// 		// $name = $tahun.'.xls';
-	// 		// header('Expires: 0');
-	// 		// header('Cache-control: private');
-	// 		// header("Content-type: application/vnd.ms-excel"); // Excel file
-	// 		// header("Cache-Control: cache, must-revalidate"); 
-	// 		// header('Content-Description: File Transfer');
-	// 		// header('Last-Modified: '.date('D, d M Y H:i:s'));
-	// 		// header("Pragma: public"); 
-	// 		// header('Content-Disposition:; filename="'.$name.'"');
-	// 		// header("Content-Transfer-Encoding: binary");
-
-			
-	// 		// echo utf8_decode("<table border='0'> 
-
-	// 		// 		<tr> 
-	// 		// 		<td style='font-weight:bold; border:1px solid #eee;'>Nama</td> 
-	// 		// 		<td style='font-weight:bold; border:1px solid #eee;'>Nilai</td>
-	// 		// 		<td style='font-weight:bold; border:1px solid #eee;'>Satuan</td>
 	
-	// 		// 		</tr>");
-	// 		// foreach ($answer as $row => $item){
-
-	// 		// 	echo utf8_decode("<tr>
-	// 		//  			<td style='border:1px solid #eee;'>".$item["keterangan"]."</td> 
-	// 		//  			<td style='border:1px solid #eee;'>".$item["kuantitas"]."</td>
-	// 		//  			<td style='border:1px solid #eee;'>".$item["satuan"]."</td>
-	// 		//  			</tr>");
-	// 		// }
-
-	// 		// echo "</table>";
-
-
-		
-		
-	// }
-
 	static public function ctrShowReportDataPariwisata($tahun, $bulan,$lokasi){
 		
 		$tableDataPariwisata = "data_pariwisata";
@@ -122,7 +74,7 @@ class ControllerReport {
 
 
 	static public function ctrShowReportDataPariwisataProvinsi($bulan, $valueBulan, $satker,$valueSatker){
-		$tahun=getdate()['year'];
+		$tahun=getdate()['year']-1;
 		$tableDataPariwisata = "data_pariwisata";
 		$tableRefKodeData = "ref_kode_data";
 
@@ -138,7 +90,7 @@ class ControllerReport {
 
 		$tableDataPariwisata = "data_pariwisata";
 		$tableRefKodeData = "ref_kode_data";
-		$tahun=getdate()['year'];
+		$tahun=getdate()['year']-1;
 		$lokasi = $_GET["lokasi"];
 		$bulan = $_GET["bulan"];
 		if(isset($_GET["report"])){
