@@ -248,44 +248,13 @@ $(document).on("click", ".btnDeleteUser", function(){
 });
 
 
-$(document).on("click", "#btnAddUser", function(){
-
-	var dateobj = new Date();  
-	var tanggalSekarang = dateobj.getDate(); 
-	console.log("tanggalSekarang", tanggalSekarang);
-
-
-	var bulan = $('#btnAddUser').val();
-	var data = new FormData();
-	data.append("validateDate", bulan);
-
-
-	$.ajax({
-		url:"ajax/periode.ajax.php",
-		method: "POST",
-		data: data,
-		cache: false,
-		contentType: false,
-		processData: false,
-		dataType: "json",
-		success: function(answer){ 
-
-			if(tanggalSekarang < answer['tanggal']){
-				swal({
-					title: "Tanggal Sekarang Lebih dari tanggal deadline",
-					type: "error",
-					confirmButtonText: "Close"	
-				});
-			}else{
-				$('#addUser').modal('show');
-			}
-
-
-
-		}
-
-});
-});
+// $(document).on("click", "#btnAddUser", function(){
+// 	console.log("btnadd");
+// 	$(".alert").remove();
+// 	$('#newNIP').attr('value', '');  
+// 	// $('#newNIP').remove();
+// 	// newPasswd
+// });
 
 
 // // First we initialize a variable with the fruits and their prices per kg

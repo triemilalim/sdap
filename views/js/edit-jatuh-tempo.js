@@ -48,3 +48,18 @@ $(document).on("click", "#editJatuhTempo", function(){
   })
 
 });
+
+
+$(document).on("click", ".namaBulan", function(){
+   var namaBulan = $('.namaBulan').find(":selected").val();
+   if(namaBulan == 2){
+      $("#tanggalBaru option[value='30']").hide();
+      $("#tanggalBaru option[value='31']").hide();
+   } else if(namaBulan == 4 || namaBulan == 6 || namaBulan == 9 || namaBulan == 11)  {
+      $("#tanggalBaru option[value='31']").hide();
+      $("#tanggalBaru option[value='30']").show();
+   } else {
+       $("#tanggalBaru option[value='30']").show();
+      $("#tanggalBaru option[value='31']").show();
+   }
+});

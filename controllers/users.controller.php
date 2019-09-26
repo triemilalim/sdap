@@ -204,7 +204,7 @@ class ControllerUsers{
 					
 					swal({
 						type: "error",
-						title: "No especial characters or blank fields",
+						title: "Terdapat spesial karakter atau isian yang kosong",
 						showConfirmButton: true,
 						confirmButtonText: "Close"
 			

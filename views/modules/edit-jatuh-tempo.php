@@ -28,7 +28,8 @@
                 <div class="form-group col-md-4">
                   <label>Pilih Tahun</label>
                   <select class="form-control tahun" name="tahun" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                    <option value="">Pilih Tahun</option> 
+                    <option value=""disabled selected>Pilih Tahun</option> 
+                    <option value="2017">2017</option> 
                    <option value="2018">2018</option> 
                    <option value="2019">2019</option> 
                 </select>
@@ -36,7 +37,7 @@
                 <div class="form-group col-md-4">
                   <label>Pilih Bulan</label>
                   <select class="form-control namaBulan" name="namaBulan" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                    <option value="">Pilih Bulan</option>                    
+                    <option value="" disabled selected="true">Pilih Bulan</option>                    
                     <option value="1">Januari</option>
                     <option value="2">Februari</option>
                     <option value="3">Maret</option>
@@ -55,8 +56,8 @@
                 
               <div class="form-group col-md-4">
                   <label>Pilih Tanggal Baru</label>
-                  <select class="form-control tanggalBaru" name="tanggalBaru" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                   <option value="">Pilih Tanggal</option>  
+                  <select class="form-control tanggalBaru" name="tanggalBaru" id="tanggalBaru" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                   <option value="" disabled selected>Pilih Tanggal</option>  
                    <?php
                    $i = 1;
                    for ($i=1; $i < 32 ; $i++) { 

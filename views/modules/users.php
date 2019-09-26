@@ -37,7 +37,7 @@
                   // var_dump($tanggal);
                   // var_dump($bulan);
             ?>
-         <button class="btn btn-primary" data-toggle="modal" data-target="#addUser">
+         <button class="btn btn-primary" data-toggle="modal" id ="btnAddUser" data-target="#addUser">
 
           Tambah user
 
@@ -166,7 +166,7 @@
     <!-- Modal content-->
     <div class="modal-content">
 
-      <form role="form" method="POST" enctype="multipart/form-data">
+      <form role="form" method="POST"  enctype="multipart/form-data">
 
         <!--=====================================
         HEADER
@@ -209,7 +209,7 @@
 
                 <span class="input-group-addon"><i class="fa fa-github"></i></span>
 
-                <input maxlength="18" class="form-control input-lg" id="newNIP" name="newNIP" placeholder="Masukan NIP"  required>
+                <input maxlength="18" class="form-control input-lg" id="newNIP" name="newNIP" placeholder="Masukan NIP" required>
 
               </div>
 
