@@ -131,11 +131,11 @@
                     <td>'.$value["satuan"].'</td>';
 
                     if($value["status_persetujuan"] == 1){
-                      echo '<td><button class="btn btn-success btnPersetujuan btn-xs" statusApproved="0" idDataPariwisata="'.$value["id"].'"> Disetujui</button></td>';
+                      echo '<td><button class="btn btn-success btnPersetujuan btn-xs" statusApproved="0">Disetujui</button></td>';
                     }elseif ($value["status_persetujuan"] == 0){
-                      echo '<td><button class="btn btn-warning btnPersetujuan btn-xs" statusApproved="1" idDataPariwisata="'.$value["id"].'">Belum Disetujui</button></td>';
+                      echo '<td><button class="btn btn-warning btnPersetujuan btn-xs" statusApproved="1">Belum Disetujui</button></td>';
                     } else {
-                      echo '<td><button class="btn btn-danger btnPersetujuan btn-xs" statusApproved="2" idDataPariwisata="'.$value["id"].'">Ditolak</button></td>';
+                      echo '<td><button class="btn btn-danger btnPersetujuan btn-xs" statusApproved="2">Ditolak</button></td>';
                     }
               }
           ?>

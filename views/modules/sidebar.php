@@ -157,7 +157,7 @@
 						
 							<i class="fa fa-product-hunt"></i>
 
-							<span>Cetak Laporan</span>
+							<span>Export Data</span>
 
 						</a>
 
@@ -171,7 +171,7 @@
 
 							<i class="fa fa-product-hunt"></i>
 
-							<span>Cetak Laporan</span>
+							<span>Export Data</span>
 
 						</a>
 

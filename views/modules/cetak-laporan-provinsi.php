@@ -36,8 +36,8 @@
                   <div class="form-group col-md-4">
                     <label>Pilih Bulan</label>
                     <select class="form-control namaBulan" name="namaBulan" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                      <option value="" disabled selected>Pilih Bulan</option> 
-                      <option value="13">Pilih Semua</option>                   
+                      <option value="" disabled selected>--- Pilih Bulan ---</option> 
+                      <option value="13">Pilih Semua Bulan</option>                   
                       <option value="1">Januari</option>
                       <option value="2">Februari</option>
                       <option value="3">Maret</option>
@@ -56,7 +56,7 @@
                   <div class="form-group col-md-4">
                     <label>Pilih Satuan Kerja</label>
                     <select class="form-control satuanKerja" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                     <option value="" disabled selected>Pilih Satuan Kerja</option>  
+                     <option value="" disabled selected>--- Pilih Satuan Kerja ---</option>  
                      <?php
 
                      $item = null;
@@ -68,7 +68,7 @@
 
                      foreach ($users as $key => $value) {
                       if($value["kode_lokasi"] == 99) {
-                          echo '<option value="'.$value["kode_lokasi"].'">Pilih Semua</option>';
+                          echo '<option value="'.$value["kode_lokasi"].'">Pilih Semua Satuan Kerja</option>';
                       }else {
                           echo '<option value="'.$value["kode_lokasi"].'">'.$value["keterangan"].'</option>';
                       }

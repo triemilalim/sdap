@@ -74,7 +74,7 @@ class ControllerReport {
 
 
 	static public function ctrShowReportDataPariwisataProvinsi($bulan, $valueBulan, $satker,$valueSatker){
-		$tahun=getdate()['year']-1;
+		$tahun=getdate()['year'];
 		$tableDataPariwisata = "data_pariwisata";
 		$tableRefKodeData = "ref_kode_data";
 
@@ -90,7 +90,7 @@ class ControllerReport {
 
 		$tableDataPariwisata = "data_pariwisata";
 		$tableRefKodeData = "ref_kode_data";
-		$tahun=getdate()['year']-1;
+		$tahun=getdate()['year'];
 		$lokasi = $_GET["lokasi"];
 		$bulan = $_GET["bulan"];
 		if(isset($_GET["report"])){
