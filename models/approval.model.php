@@ -11,8 +11,7 @@ class ApprovalsModel{
             FROM $tabelDataPariwisata
             INNER JOIN ref_kode_data
             ON data_pariwisata.kode_data=ref_kode_data.kode_data
-            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan and data_pariwisata.kode_data LIKE 'B%'
-            order by data_pariwisata.status_persetujuan");
+            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan and data_pariwisata.kode_data LIKE 'B%' order by FIELD (data_pariwisata.status_persetujuan ,'2' , '0' , '1')");
             // var_dump($stmt);
 
             $stmt -> execute();
@@ -29,8 +28,7 @@ class ApprovalsModel{
             FROM $tabelDataPariwisata
             INNER JOIN ref_kode_data
             ON data_pariwisata.kode_data=ref_kode_data.kode_data
-            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan and data_pariwisata.kode_data LIKE 'T%'
-            order by data_pariwisata.status_persetujuan");
+            WHERE kode_lokasi=$lokasi AND tahun=$tahun AND bulan=$bulan and data_pariwisata.kode_data LIKE 'T%' order by FIELD (data_pariwisata.status_persetujuan ,'2' , '0' , '1')");
 
             $stmt -> execute();
 
